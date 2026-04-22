@@ -1,20 +1,40 @@
 {
-  "generated_at": "2026-04-22T14:36:24.161001",
+  "generated_at": "2026-04-22T19:37:27.738776",
   "query_count": 10,
+  "comparison_mode": "with_context_vs_without_context",
   "summary": {
     "avg_retrieval_relevance": 0.2,
-    "avg_solution_utility": 2,
+    "avg_solution_utility_with_context": 2,
+    "avg_solution_utility_without_context": 2,
     "avg_similarity_score": 0.043,
-    "error_run_count": 10,
-    "critical_error_run_count": 0,
-    "placeholder_run_count": 0,
+    "avg_total_with_context": 2.2,
+    "avg_total_without_context": 2.2,
+    "avg_total_delta_with_minus_without": 0,
+    "avg_answer_correctness_with_context": 1.8,
+    "avg_answer_correctness_without_context": 2,
+    "avg_answer_correctness_delta_with_minus_without": -0.2,
+    "correctness_with_context_better_count": 0,
+    "correctness_without_context_better_count": 1,
+    "correctness_tie_count": 9,
+    "avg_total_strict_with_context": 2,
+    "avg_total_strict_without_context": 2.2,
+    "with_context_better_count": 0,
+    "without_context_better_count": 0,
+    "tie_count": 10,
+    "error_run_count_with_context": 10,
+    "error_run_count_without_context": 10,
+    "critical_error_run_count_with_context": 0,
+    "critical_error_run_count_without_context": 0,
+    "placeholder_run_count_with_context": 0,
+    "placeholder_run_count_without_context": 0,
     "edu_result_count": 10
   },
   "runs": [
     {
       "id": 1,
       "prompt": "Solve 2x + 3 = 11",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Solving Linear Equations Algebra notes with worked examples for solving linear equations step by step.",
+      "output_with_context": {
         "normalized_user_problem": "solve 2x + 3 = 11",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Solving Linear Equations",
@@ -22,19 +42,43 @@
           "snippet": "Algebra notes with worked examples for solving linear equations step by step."
         },
         "similarity_score": 0.0,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the equation \\(2x + 3 = 11\\) step-by-step using the same approach as the similar problem provided:\n\n### Step 1: Subtract 3 from both sides of the equation\nTo isolate the term with \\(x\\), we need to move the constant term on the left side to the right side. We do this by subtracting 3 from both sides:\n\\[2x + 3 - 3 = 11 - 3\\]\nThis simplifies to:\n\\[2x = 8\\]\n\n### Step 2: Divide both sides by 2\nTo solve for \\(x\\), we need to isolate it by dividing both sides of the equation by the coefficient of \\(x\\). In this case, the coefficient is 2:\n\\[2x \\div 2 = 8 \\div 2\\]\nThis simplifies to:\n\\[x = 4\\]\n\n### Final Answer\nThe solution to the equation \\(2x + 3 = 11\\) is \\(x = 4\\).",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "solve 2x + 3 = 11",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Solving Linear Equations",
+          "url": "https://tutorial.math.lamar.edu/Classes/Alg/SolveEqns.aspx",
+          "snippet": "Algebra notes with worked examples for solving linear equations step by step."
+        },
+        "similarity_score": 0.0,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the equation step-by-step:\n\nGiven equation: \\(2x + 3 = 11\\)\n\nStep 1: Subtract 3 from both sides of the equation to isolate the term with \\(x\\).\n\\[2x + 3 - 3 = 11 - 3\\]\nThis simplifies to:\n\\[2x = 8\\]\n\nStep 2: Divide both sides by 2 to solve for \\(x\\).\n\\[2x \\div 2 = 8 \\div 2\\]\nThis simplifies to:\n\\[x = 4\\]\n\nTherefore, the solution to the equation \\(2x + 3 = 11\\) is \\(x = 4\\).",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 2,
       "prompt": "Solve 3x - 7 = 11",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Integrals Calculus I integration basics with antiderivative examples.",
+      "output_with_context": {
         "normalized_user_problem": "solve 3x - 7 = 11",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Integrals",
@@ -42,19 +86,43 @@
           "snippet": "Calculus I integration basics with antiderivative examples."
         },
         "similarity_score": 0.0526,
+        "used_similar_context": true,
+        "final_solution": "Certainly! Let's solve the equation \\(3x - 7 = 11\\) step-by-step:\n\nStep 1: Add 7 to both sides of the equation to isolate the term with \\(x\\).\n\\[3x - 7 + 7 = 11 + 7\\]\nThis simplifies to:\n\\[3x = 18\\]\n\nStep 2: Divide both sides by 3 to solve for \\(x\\).\n\\[3x \\div 3 = 18 \\div 3\\]\nThis simplifies to:\n\\[x = 6\\]\n\nTherefore, the solution to the equation \\(3x - 7 = 11\\) is \\(x = 6\\).",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
+      "output_without_context": {
+        "normalized_user_problem": "solve 3x - 7 = 11",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Integrals",
+          "url": "https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx",
+          "snippet": "Calculus I integration basics with antiderivative examples."
+        },
+        "similarity_score": 0.0526,
+        "used_similar_context": false,
         "final_solution": "Certainly! Let's solve the equation \\(3x - 7 = 11\\) step-by-step:\n\nStep 1: Add 7 to both sides of the equation to isolate the term with \\(x\\).\n\\[3x - 7 + 7 = 11 + 7\\]\nThis simplifies to:\n\\[3x = 18\\]\n\nStep 2: Divide both sides by 3 to solve for \\(x\\).\n\\[3x \\div 3 = 18 \\div 3\\]\nThis simplifies to:\n\\[x = 6\\]\n\nTherefore, the solution to the equation \\(3x - 7 = 11\\) is \\(x = 6\\).",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 3,
       "prompt": "Factor x^2 + 5x + 6",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Factoring Polynomials Worked examples for factoring quadratics and polynomial expressions.",
+      "output_with_context": {
         "normalized_user_problem": "factor x^2 + 5x + 6",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Factoring Polynomials",
@@ -62,19 +130,43 @@
           "snippet": "Worked examples for factoring quadratics and polynomial expressions."
         },
         "similarity_score": 0.0,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the given quadratic equation step-by-step using the same approach as the provided context:\n\n1. **Identify the coefficients:**\n   The quadratic equation is \\(x^2 + 5x + 6\\). Here, the coefficients are:\n   - \\(a = 1\\) (coefficient of \\(x^2\\))\n   - \\(b = 5\\) (coefficient of \\(x\\))\n   - \\(c = 6\\) (constant term)\n\n2. **Determine the discriminant:**\n   The discriminant (\\(\\Delta\\)) is given by:\n   \\[\n   \\Delta = b^2 - 4ac\n   \\]\n   Substituting the values of \\(a\\), \\(b\\), and \\(c\\):\n   \\[\n   \\Delta = 5^2 - 4 \\cdot 1 \\cdot 6 = 25 - 24 = 1\n   \\]\n\n3. **Use the discriminant to find the roots:**\n   Since the discriminant is positive (\\(\\Delta > 0\\)), there are two distinct real roots. The quadratic formula is:\n   \\[\n   x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}\n   \\]\n   Substituting the values of \\(a\\), \\(b\\), and \\(\\Delta\\):\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{1}}{2 \\cdot 1} = \\frac{-5 \\pm 1}{2}\n   \\]\n\n4. **Solve for the roots:**\n   - For the positive root:\n     \\[\n     x = \\frac{-5 + 1}{2} = \\frac{-4}{2} = -2\n     \\]\n   - For the negative root:\n     \\[\n     x = \\frac{-5 - 1}{2} = \\frac{-6}{2} = -3\n     \\]\n\nTherefore, the roots of the quadratic equation \\(x^2 + 5x + 6\\) are \\(\\boxed{-2}\\) and \\(\\boxed{-3}\\).",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "factor x^2 + 5x + 6",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Factoring Polynomials",
+          "url": "https://tutorial.math.lamar.edu/Classes/Alg/Factoring.aspx",
+          "snippet": "Worked examples for factoring quadratics and polynomial expressions."
+        },
+        "similarity_score": 0.0,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the given quadratic equation step-by-step:\n\n1. **Identify the coefficients:**\n   The quadratic equation is \\(x^2 + 5x + 6\\). Here, the coefficients are:\n   - \\(a = 1\\) (coefficient of \\(x^2\\))\n   - \\(b = 5\\) (coefficient of \\(x\\))\n   - \\(c = 6\\) (constant term)\n\n2. **Use the quadratic formula:**\n   The quadratic formula is given by:\n   \\[\n   x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n   \\]\n\n3. **Substitute the coefficients into the formula:**\n   Substitute \\(a = 1\\), \\(b = 5\\), and \\(c = 6\\) into the quadratic formula:\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{5^2 - 4 \\cdot 1 \\cdot 6}}{2 \\cdot 1}\n   \\]\n\n4. **Simplify inside the square root:**\n   Calculate the discriminant (\\(b^2 - 4ac\\)):\n   \\[\n   b^2 = 5^2 = 25\n   \\]\n   \\[\n   4ac = 4 \\cdot 1 \\cdot 6 = 24\n   \\]\n   \\[\n   b^2 - 4ac = 25 - 24 = 1\n   \\]\n\n5. **Substitute the discriminant back into the formula:**\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{1}}{2}\n   \\]\n\n6. **Simplify the square root and solve for \\(x\\):**\n   \\[\n   \\sqrt{1} = 1\n   \\]\n   So, we have:\n   \\[\n   x = \\frac{-5 + 1}{2} \\quad \\text{or} \\quad x = \\frac{-5 - 1}{2}\n   \\]\n\n7. **Calculate the two solutions:**\n   \\[\n   x = \\frac{-4}{2} = -2\n   \\]\n   \\[\n   x = \\frac{-6}{2} = -3\n   \\]\n\nTherefore, the solutions to the quadratic equation \\(x^2 + 5x + 6\\) are:\n\\[\n\\boxed{-2 \\text{ and } -3}\n\\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 4,
       "prompt": "Solve x^2 - 9 = 0",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Integrals Calculus I integration basics with antiderivative examples.",
+      "output_with_context": {
         "normalized_user_problem": "solve x^2 - 9 = 0",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Integrals",
@@ -82,19 +174,43 @@
           "snippet": "Calculus I integration basics with antiderivative examples."
         },
         "similarity_score": 0.0526,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the equation \\(x^2 - 9 = 0\\) step-by-step using the same approach as we would for solving similar problems.\n\n### Step 1: Factor the quadratic equation\nThe given equation is:\n\\[ x^2 - 9 = 0 \\]\n\nWe can factor this quadratic expression by recognizing that it is a difference of squares. The general form of a difference of squares is:\n\\[ a^2 - b^2 = (a + b)(a - b) \\]\n\nIn our case, \\(a^2 = x^2\\) and \\(b^2 = 9\\). Therefore, we can rewrite the equation as:\n\\[ x^2 - 9 = (x + 3)(x - 3) = 0 \\]\n\n### Step 2: Set each factor equal to zero\nTo solve for \\(x\\), we set each factor equal to zero and solve for \\(x\\):\n\\[ x + 3 = 0 \\quad \\text{or} \\quad x - 3 = 0 \\]\n\n### Step 3: Solve each equation\nSolving these equations gives us:\n\\[ x + 3 = 0 \\implies x = -3 \\]\n\\[ x - 3 = 0 \\implies x = 3 \\]\n\n### Final Answer\nThe solutions to the equation \\(x^2 - 9 = 0\\) are:\n\\[ x = -3 \\quad \\text{and} \\quad x = 3 \\]",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "solve x^2 - 9 = 0",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Integrals",
+          "url": "https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx",
+          "snippet": "Calculus I integration basics with antiderivative examples."
+        },
+        "similarity_score": 0.0526,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the equation \\(x^2 - 9 = 0\\) step-by-step using the same approach as we would for solving quadratic equations.\n\n1. **Identify the given equation:**\n   \\[\n   x^2 - 9 = 0\n   \\]\n\n2. **Recognize that this is a difference of squares:**\n   The expression \\(x^2 - 9\\) can be factored using the difference of squares formula, which states:\n   \\[\n   a^2 - b^2 = (a + b)(a - b)\n   \\]\n   Here, \\(a = x\\) and \\(b = 3\\), because \\(9 = 3^2\\).\n\n3. **Apply the difference of squares formula:**\n   Substitute \\(x\\) for \\(a\\) and \\(3\\) for \\(b\\):\n   \\[\n   x^2 - 9 = (x + 3)(x - 3)\n   \\]\n\n4. **Set each factor equal to zero:**\n   To solve the equation, we set each factor equal to zero:\n   \\[\n   x + 3 = 0 \\quad \\text{or} \\quad x - 3 = 0\n   \\]\n\n5. **Solve for \\(x\\) in each equation:**\n   - For \\(x + 3 = 0\\):\n     \\[\n     x = -3\n     \\]\n   - For \\(x - 3 = 0\\):\n     \\[\n     x = 3\n     \\]\n\n6. **Write the final solution:**\n   The solutions to the equation \\(x^2 - 9 = 0\\) are:\n   \\[\n   x = -3 \\quad \\text{and} \\quad x = 3\n   \\]\n\nTherefore, the final answer is:\n\\[\n\\boxed{x = -3 \\text{ or } x = 3}\n\\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 5,
       "prompt": "Find the derivative of x^3 + 2x",
-      "output": {
+      "retrieved_similar_text_used": "University of Kentucky - Solving Systems by Elimination Step-by-step elimination method examples for systems of linear equations.",
+      "output_with_context": {
         "normalized_user_problem": "find the derivative of x^3 + 2x",
         "retrieved_similar_problem": {
           "title": "University of Kentucky - Solving Systems by Elimination",
@@ -102,19 +218,43 @@
           "snippet": "Step-by-step elimination method examples for systems of linear equations."
         },
         "similarity_score": 0.05,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the user's new problem step-by-step using the similar solved problem as supporting context.\nThe user's problem is to find the derivative of \\( x^3 + 2x \\).\nTo solve this, we can use the power rule for differentiation. The power rule states that if \\( f(x) = x^n \\), then \\( f'(x) = nx^{n-1} \\).\n\nLet's apply the power rule to each term in the expression \\( x^3 + 2x \\):\n1. For the term \\( x^3 \\):\n   - The exponent is 3.\n   - Applying the power rule: \\( 3x^{3-1} = 3x^2 \\).\n\n2. For the term \\( 2x \\):\n   - The exponent is 1.\n   - Applying the power rule: \\( 1 \\cdot 2x^{1-1} = 2 \\cdot 2x^0 = 4 \\) (since any non-zero number raised to the power of 0 is 1).\n\nNow, we combine the results from both terms:\n\\[ x^3 + 2x = 3x^2 + 4. \\]\n\nTherefore, the derivative of \\( x^3 + 2x \\) is:\n\\[ \\boxed{3x^2 + 4}. \\]",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "find the derivative of x^3 + 2x",
+        "retrieved_similar_problem": {
+          "title": "University of Kentucky - Solving Systems by Elimination",
+          "url": "https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html",
+          "snippet": "Step-by-step elimination method examples for systems of linear equations."
+        },
+        "similarity_score": 0.05,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the user's problem step-by-step using the similar solved problem as supporting context.\n\n### Similar Problem:\nFind the derivative of \\( f(x) = x^3 + 2x \\).\n\nTo find the derivative of \\( f(x) = x^3 + 2x \\), we will use the power rule. The power rule states that if \\( f(x) = ax^n \\), then \\( f'(x) = nax^{n-1} \\).\n\nLet's apply this rule to each term in the function:\n\n1. For the term \\( x^3 \\):\n   - The coefficient \\( a = 1 \\)\n   - The exponent \\( n = 3 \\)\n   - Applying the power rule: \\( f'(x) = 3x^{3-1} = 3x^2 \\)\n\n2. For the term \\( 2x \\):\n   - The coefficient \\( a = 2 \\)\n   - The exponent \\( n = 1 \\)\n   - Applying the power rule: \\( f'(x) = 1 \\cdot 2x^{1-1} = 2 \\cdot 1 = 2 \\)\n\nNow, we combine the derivatives of each term to get the derivative of the entire function:\n\n\\[ f'(x) = 3x^2 + 2 \\]\n\n### Final Solution:\nThe derivative of \\( x^3 + 2x \\) is \\(\\boxed{3x^2 + 2}\\).",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 0,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 0,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": -2
     },
     {
       "id": 6,
       "prompt": "Find the derivative of (x^2 + 1)(x - 4)",
-      "output": {
+      "retrieved_similar_text_used": "University of Kentucky - Solving Systems by Elimination Step-by-step elimination method examples for systems of linear equations.",
+      "output_with_context": {
         "normalized_user_problem": "find the derivative of (x^2 + 1)(x - 4)",
         "retrieved_similar_problem": {
           "title": "University of Kentucky - Solving Systems by Elimination",
@@ -122,19 +262,43 @@
           "snippet": "Step-by-step elimination method examples for systems of linear equations."
         },
         "similarity_score": 0.0952,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the new problem step-by-step using the similar solved problem as context.\nTo find the derivative of \\((x^2 + 1)(x - 4)\\), we can use the product rule. The product rule states that if you have a function \\(f(x) = u(x)v(x)\\), then the derivative \\(f'(x)\\) is given by:\n\\[ f'(x) = u'(x)v(x) + u(x)v'(x) \\]\n\nIn this problem, let \\(u(x) = x^2 + 1\\) and \\(v(x) = x - 4\\). We need to find the derivatives of \\(u(x)\\) and \\(v(x)\\):\n\\[ u'(x) = \\frac{d}{dx}(x^2 + 1) = 2x \\]\n\\[ v'(x) = \\frac{d}{dx}(x - 4) = 1 \\]\n\nNow, we apply the product rule:\n\\[ f'(x) = (2x)(x - 4) + (x^2 + 1)(1) \\]\n\nNext, we distribute and simplify:\n\\[ f'(x) = 2x^2 - 8x + x^2 + 1 \\]\n\\[ f'(x) = 3x^2 - 8x + 1 \\]\n\nTherefore, the derivative of \\((x^2 + 1)(x - 4)\\) is:\n\\[ \\boxed{3x^2 - 8x + 1} \\]",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "find the derivative of (x^2 + 1)(x - 4)",
+        "retrieved_similar_problem": {
+          "title": "University of Kentucky - Solving Systems by Elimination",
+          "url": "https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html",
+          "snippet": "Step-by-step elimination method examples for systems of linear equations."
+        },
+        "similarity_score": 0.0952,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the given problem step-by-step using the similar solved problem as supporting context.\n\n### Similar Problem:\nFind the derivative of \\( f(x) = x^3 + 2x \\).\n\n**Solution:**\nTo find the derivative of \\( f(x) = x^3 + 2x \\), we use the power rule. The power rule states that if \\( f(x) = x^n \\), then \\( f'(x) = nx^{n-1} \\).\n\nApplying this rule to each term in \\( f(x) \\):\n\n1. For \\( x^3 \\):\n   \\[\n   \\frac{d}{dx}(x^3) = 3x^2\n   \\]\n\n2. For \\( 2x \\):\n   \\[\n   \\frac{d}{dx}(2x) = 2\n   \\]\n\nAdding these results together gives us the derivative of \\( f(x) \\):\n\n\\[\nf'(x) = 3x^2 + 2\n\\]\n\n### New Problem:\nFind the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\).\n\n**Solution:**\nTo find the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\), we use the product rule. The product rule states that if \\( g(x) = u(x)v(x) \\), then \\( g'(x) = u'(x)v(x) + u(x)v'(x) \\).\n\nHere, let \\( u(x) = x^2 + 1 \\) and \\( v(x) = x - 4 \\).\n\nFirst, find the derivatives of \\( u(x) \\) and \\( v(x) \\):\n\n1. For \\( u(x) = x^2 + 1 \\):\n   \\[\n   u'(x) = 2x\n   \\]\n\n2. For \\( v(x) = x - 4 \\):\n   \\[\n   v'(x) = 1\n   \\]\n\nNow, apply the product rule:\n\n\\[\ng'(x) = u'(x)v(x) + u(x)v'(x)\n\\]\n\nSubstitute \\( u(x) \\), \\( u'(x) \\), \\( v(x) \\), and \\( v'(x) \\) into the formula:\n\n\\[\ng'(x) = (2x)(x - 4) + (x^2 + 1)(1)\n\\]\n\nSimplify each term:\n\n1. For \\( (2x)(x - 4) \\):\n   \\[\n   (2x)(x - 4) = 2x^2 - 8x\n   \\]\n\n2. For \\( (x^2 + 1)(1) \\):\n   \\[\n   (x^2 + 1)(1) = x^2 + 1\n   \\]\n\nAdd these results together:\n\n\\[\ng'(x) = 2x^2 - 8x + x^2 + 1\n\\]\n\nCombine like terms:\n\n\\[\ng'(x) = 3x^2 - 8x + 1\n\\]\n\nTherefore, the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\) is:\n\n\\[\n\\boxed{3x^2 - 8x + 1}\n\\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 1,
-      "solution_utility_score": 2,
-      "total_score": 3
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 3,
+      "total_without_context": 3,
+      "total_strict_with_context": 3,
+      "total_strict_without_context": 3,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 7,
       "prompt": "Integrate 2x + 5",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Integrals Calculus I integration basics with antiderivative examples.",
+      "output_with_context": {
         "normalized_user_problem": "integrate 2x + 5",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Integrals",
@@ -142,19 +306,43 @@
           "snippet": "Calculus I integration basics with antiderivative examples."
         },
         "similarity_score": 0.0,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the integral \\( \\int (2x + 5) \\, dx \\) step-by-step using the method of substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\( 2x + 5 \\), and we are integrating with respect to \\( x \\).\n\n### Step 2: Set up the integral\n\\[\n\\int (2x + 5) \\, dx\n\\]\n\n### Step 3: Use substitution\nLet's use the substitution method. Let:\n\\[\nu = 2x + 5\n\\]\nThen, we need to find \\( du \\) in terms of \\( dx \\):\n\\[\ndu = \\frac{d}{dx}(2x + 5) \\, dx = 2 \\, dx\n\\]\n\n### Step 4: Solve for \\( dx \\)\nFrom the substitution, we have:\n\\[\n2 \\, dx = du\n\\]\nDivide both sides by 2 to solve for \\( dx \\):\n\\[\ndx = \\frac{1}{2} \\, du\n\\]\n\n### Step 5: Substitute \\( u \\) and \\( dx \\) into the integral\nNow substitute \\( u = 2x + 5 \\) and \\( dx = \\frac{1}{2} \\, du \\) into the original integral:\n\\[\n\\int (2x + 5) \\, dx = \\int u \\cdot \\frac{1}{2} \\, du\n\\]\n\n### Step 6: Simplify the integral\nFactor out the constant \\(\\frac{1}{2}\\):\n\\[\n\\int u \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} \\int u \\, du\n\\]\n\n### Step 7: Integrate \\( u \\)\nThe integral of \\( u \\) with respect to \\( u \\) is:\n\\[\n\\int u \\, du = \\frac{u^2}{2}\n\\]\n\n### Step 8: Substitute back and add the constant of integration\nSubstitute \\(\\frac{u^2}{2}\\) back into the integral and add the constant of integration \\( C \\):\n\\[\n\\frac{1}{2} \\int u \\, du = \\frac{1}{2} \\cdot \\frac{u^2}{2} + C = \\frac{u^2}{4} + C\n\\]\n\n### Step 9: Substitute back the original variable \\( x \\)\nRecall that \\( u = 2x + 5 \\). Substitute this back into the expression:\n\\[\n\\frac{u^2}{4} + C = \\frac{(2x + 5)^2}{4} + C\n\\]\n\n### Step 10: Simplify the final answer\nExpand and simplify the expression inside the parentheses:\n\\[\n(2x + 5)^2 = 4x^2 + 20x + 25\n\\]\nSo,\n\\[\n\\frac{(2x + 5)^2}{4} = \\frac{4x^2 + 20x + 25}{4} = x^2 + 5x + \\frac{25}{4}\n\\]\n\n### Final Answer\n\\[\n\\boxed{x^2 + 5x + \\frac{25}{4}}\n\\]",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "integrate 2x + 5",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Integrals",
+          "url": "https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx",
+          "snippet": "Calculus I integration basics with antiderivative examples."
+        },
+        "similarity_score": 0.0,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the integral \\( \\int (2x + 5) \\, dx \\) step-by-step using the method of integration by substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\( 2x + 5 \\), and we are integrating with respect to \\( x \\).\n\n### Step 2: Set up the integral\n\\[\n\\int (2x + 5) \\, dx = \\int 2x \\, dx + \\int 5 \\, dx\n\\]\n\n### Step 3: Integrate each term separately\n#### First term: \\( \\int 2x \\, dx \\)\nTo integrate \\( 2x \\), we use the power rule for integration. The power rule states that:\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\nwhere \\( n \\) is any real number except -1.\n\nApplying this rule to \\( 2x \\):\n\\[\n\\int 2x \\, dx = 2 \\int x \\, dx = 2 \\left( \\frac{x^2}{2} \\right) + C = x^2 + C\n\\]\n\n#### Second term: \\( \\int 5 \\, dx \\)\nThe integral of a constant is the constant times \\( x \\). So:\n\\[\n\\int 5 \\, dx = 5x + C\n\\]\n\n### Step 4: Combine the results\nNow, we combine the results of the two integrals:\n\\[\n\\int (2x + 5) \\, dx = x^2 + C + 5x + C\n\\]\n\n### Step 5: Simplify the expression\nCombine like terms:\n\\[\nx^2 + 5x + C + C = x^2 + 5x + 2C\n\\]\n\n### Final answer\nThe integral of \\( 2x + 5 \\) is:\n\\[\n\\boxed{x^2 + 5x + 2C}\n\\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 8,
       "prompt": "Compute the integral of x^2",
-      "output": {
+      "retrieved_similar_text_used": "University of Kentucky - Solving Systems by Elimination Step-by-step elimination method examples for systems of linear equations.",
+      "output_with_context": {
         "normalized_user_problem": "compute the integral of x^2",
         "retrieved_similar_problem": {
           "title": "University of Kentucky - Solving Systems by Elimination",
@@ -162,19 +350,43 @@
           "snippet": "Step-by-step elimination method examples for systems of linear equations."
         },
         "similarity_score": 0.0556,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the integral of \\(x^2\\) step-by-step using the same approach as the retrieved similar problem.\n\n### Step 1: Understand the Integral\nThe integral we need to compute is:\n\\[\n\\int x^2 \\, dx\n\\]\n\n### Step 2: Set Up the Integral\nTo find the antiderivative of \\(x^2\\), we use the power rule for integration. The power rule states that:\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\nwhere \\(C\\) is the constant of integration.\n\n### Step 3: Apply the Power Rule\nIn our case, \\(n = 2\\). Applying the power rule:\n\\[\n\\int x^2 \\, dx = \\frac{x^{2+1}}{2+1} + C\n\\]\n\n### Step 4: Simplify the Expression\nSimplify the exponent and the denominator:\n\\[\n\\int x^2 \\, dx = \\frac{x^3}{3} + C\n\\]\n\n### Step 5: Write the Final Answer\nThe integral of \\(x^2\\) is:\n\\[\n\\boxed{\\frac{x^3}{3} + C}\n\\]\n\nThis solution follows the same steps as the retrieved similar problem, using the power rule for integration to find the antiderivative of \\(x^2\\).",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "compute the integral of x^2",
+        "retrieved_similar_problem": {
+          "title": "University of Kentucky - Solving Systems by Elimination",
+          "url": "https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html",
+          "snippet": "Step-by-step elimination method examples for systems of linear equations."
+        },
+        "similarity_score": 0.0556,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the integral of \\(x^2\\) step-by-step using the method of integration by substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\(x^2\\), and we are integrating with respect to \\(x\\).\n\n### Step 2: Choose a substitution\nWe will use the substitution \\(u = x\\). This choice is simple because \\(du\\) is straightforward to compute:\n\\[ du = dx \\]\n\n### Step 3: Rewrite the integral in terms of the new variable\nSubstitute \\(u = x\\) and \\(du = dx\\) into the integral:\n\\[ \\int x^2 \\, dx = \\int u^2 \\, du \\]\n\n### Step 4: Integrate with respect to the new variable\nThe integral of \\(u^2\\) is a standard power rule. The power rule states that:\n\\[ \\int u^n \\, du = \\frac{u^{n+1}}{n+1} + C \\]\nwhere \\(C\\) is the constant of integration.\n\nApplying this rule to our integral:\n\\[ \\int u^2 \\, du = \\frac{u^{2+1}}{2+1} + C = \\frac{u^3}{3} + C \\]\n\n### Step 5: Substitute back the original variable\nNow, substitute \\(u\\) back with \\(x\\):\n\\[ \\frac{u^3}{3} + C = \\frac{x^3}{3} + C \\]\n\n### Final Answer\nThe integral of \\(x^2\\) is:\n\\[ \\boxed{\\frac{x^3}{3} + C} \\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 9,
       "prompt": "If a rectangle has length 8 and width 3, what is its area?",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Factoring Polynomials Worked examples for factoring quadratics and polynomial expressions.",
+      "output_with_context": {
         "normalized_user_problem": "if a rectangle has length 8 and width 3, what is its area?",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Factoring Polynomials",
@@ -182,19 +394,43 @@
           "snippet": "Worked examples for factoring quadratics and polynomial expressions."
         },
         "similarity_score": 0.037,
+        "used_similar_context": true,
         "final_solution": "To solve the new problem step-by-step, let's use the context provided from Paul's Online Math Notes on factoring polynomials.\n\n1. **Identify the given dimensions of the rectangle:**\n   - Length = 8 units\n   - Width = 3 units\n\n2. **Recall the formula for the area of a rectangle:**\n   The area \\( A \\) of a rectangle is calculated using the formula:\n   \\[\n   A = \\text{length} \\times \\text{width}\n   \\]\n\n3. **Substitute the given dimensions into the formula:**\n   \\[\n   A = 8 \\, \\text{units} \\times 3 \\, \\text{units}\n   \\]\n\n4. **Perform the multiplication:**\n   \\[\n   A = 24 \\, \\text{square units}\n   \\]\n\nTherefore, the area of the rectangle is \\(\\boxed{24}\\) square units.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "if a rectangle has length 8 and width 3, what is its area?",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Factoring Polynomials",
+          "url": "https://tutorial.math.lamar.edu/Classes/Alg/Factoring.aspx",
+          "snippet": "Worked examples for factoring quadratics and polynomial expressions."
+        },
+        "similarity_score": 0.037,
+        "used_similar_context": false,
+        "final_solution": "To solve this problem, I'll follow these steps:\n\n1. Identify the given dimensions of the rectangle.\n2. Recall the formula for calculating the area of a rectangle.\n3. Substitute the given values into the formula.\n4. Perform the multiplication to find the area.\n\nStep 1: The given dimensions are length = 8 and width = 3.\n\nStep 2: The formula for the area of a rectangle is:\n\\[ \\text{Area} = \\text{length} \\times \\text{width} \\]\n\nStep 3: Substitute the given values into the formula:\n\\[ \\text{Area} = 8 \\times 3 \\]\n\nStep 4: Perform the multiplication:\n\\[ \\text{Area} = 24 \\]\n\nTherefore, the area of the rectangle is \\(\\boxed{24}\\).",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 0,
-      "solution_utility_score": 2,
-      "total_score": 2
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 2,
+      "total_without_context": 2,
+      "total_strict_with_context": 2,
+      "total_strict_without_context": 2,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 10,
       "prompt": "Solve the system: x + y = 6 and x - y = 2",
-      "output": {
+      "retrieved_similar_text_used": "Paul's Online Math Notes - Factoring Polynomials Worked examples for factoring quadratics and polynomial expressions.",
+      "output_with_context": {
         "normalized_user_problem": "solve the system: x + y = 6 and x - y = 2",
         "retrieved_similar_problem": {
           "title": "Paul's Online Math Notes - Factoring Polynomials",
@@ -202,14 +438,37 @@
           "snippet": "Worked examples for factoring quadratics and polynomial expressions."
         },
         "similarity_score": 0.0833,
+        "used_similar_context": true,
         "final_solution": "Certainly! Let's solve the system of equations step-by-step:\n\n1. **Given Equations:**\n   \\[\n   x + y = 6\n   \\]\n   \\[\n   x - y = 2\n   \\]\n\n2. **Add the two equations together:**\n   \\[\n   (x + y) + (x - y) = 6 + 2\n   \\]\n   Simplifying this, we get:\n   \\[\n   2x = 8\n   \\]\n\n3. **Solve for \\( x \\):**\n   Divide both sides by 2:\n   \\[\n   x = \\frac{8}{2} = 4\n   \\]\n\n4. **Substitute \\( x = 4 \\) back into one of the original equations to solve for \\( y \\).** Let's use the first equation:\n   \\[\n   x + y = 6\n   \\]\n   Substitute \\( x = 4 \\):\n   \\[\n   4 + y = 6\n   \\]\n\n5. **Solve for \\( y \\):**\n   Subtract 4 from both sides:\n   \\[\n   y = 6 - 4 = 2\n   \\]\n\nTherefore, the solution to the system of equations is:\n\\[\nx = 4, \\quad y = 2\n\\]",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
       },
+      "output_without_context": {
+        "normalized_user_problem": "solve the system: x + y = 6 and x - y = 2",
+        "retrieved_similar_problem": {
+          "title": "Paul's Online Math Notes - Factoring Polynomials",
+          "url": "https://tutorial.math.lamar.edu/Classes/Alg/Factoring.aspx",
+          "snippet": "Worked examples for factoring quadratics and polynomial expressions."
+        },
+        "similarity_score": 0.0833,
+        "used_similar_context": false,
+        "final_solution": "Certainly! Let's solve the system of equations step-by-step:\n\n1. **Identify the given equations:**\n   \\[\n   x + y = 6 \\quad \\text{(Equation 1)}\n   \\]\n   \\[\n   x - y = 2 \\quad \\text{(Equation 2)}\n   \\]\n\n2. **Add the two equations together to eliminate \\(y\\):**\n   \\[\n   (x + y) + (x - y) = 6 + 2\n   \\]\n   Simplifying this, we get:\n   \\[\n   2x = 8\n   \\]\n\n3. **Solve for \\(x\\) by dividing both sides by 2:**\n   \\[\n   x = \\frac{8}{2} = 4\n   \\]\n\n4. **Substitute the value of \\(x\\) back into one of the original equations to solve for \\(y\\).** Let's use Equation 1:\n   \\[\n   x + y = 6\n   \\]\n   Substitute \\(x = 4\\):\n   \\[\n   4 + y = 6\n   \\]\n\n5. **Solve for \\(y\\) by subtracting 4 from both sides:**\n   \\[\n   y = 6 - 4 = 2\n   \\]\n\nTherefore, the solution to the system of equations is:\n\\[\nx = 4 \\quad \\text{and} \\quad y = 2\n\\]",
+        "errors": [
+          "No .edu candidates found from web search; using fallback examples"
+        ]
+      },
       "retrieval_relevance_score": 1,
-      "solution_utility_score": 2,
-      "total_score": 3
+      "solution_utility_with_context": 2,
+      "solution_utility_without_context": 2,
+      "answer_correctness_with_context": 2,
+      "answer_correctness_without_context": 2,
+      "total_with_context": 3,
+      "total_without_context": 3,
+      "total_strict_with_context": 3,
+      "total_strict_without_context": 3,
+      "solution_score_delta_with_minus_without": 0,
+      "correctness_score_delta_with_minus_without": 0
     }
   ]
 }

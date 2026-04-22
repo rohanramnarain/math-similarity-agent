@@ -19,7 +19,7 @@ def solve_with_llm(user_problem: str, similar_problem: str) -> tuple[str, str | 
     Returns:
         (solution_text, error_message). error_message is None when successful.
     """
-    model_name = os.getenv("OLLAMA_MODEL", "qwen3.5:4b").strip() or "qwen3.5:4b"
+    model_name = os.getenv("OLLAMA_MODEL", "qwen2.5-coder:1.5b").strip() or "qwen2.5-coder:1.5b"
     base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip() or "http://localhost:11434"
 
     try:
@@ -36,6 +36,6 @@ def solve_with_llm(user_problem: str, similar_problem: str) -> tuple[str, str | 
             f"{user_problem[:180]}\n"
             "Retrieved similar example: "
             f"{similar_problem[:180]}\n"
-            "TODO: Start Ollama and run: ollama pull qwen3.5:4b"
+            "TODO: Start Ollama and ensure your configured model is available"
         )
         return placeholder, f"Local Ollama solve failed; returned placeholder solution: {exc}"

@@ -8,7 +8,7 @@ Given a math problem as text or image:
 2. Normalizes the problem text
 3. Builds a .edu-restricted search query
 4. Pulls candidate solved problems from web results
-5. Computes simple vector similarity and picks the best match
+5. Computes lexical similarity and picks the best match
 6. Sends user problem + similar problem to a local Ollama model
 7. Returns normalized problem, best match, score, and final solution
 
@@ -18,7 +18,7 @@ Given a math problem as text or image:
 - prompts.py: Prompt text helper for solver
 - tools/ocr_tool.py: OCR helper using pytesseract
 - tools/search_tool.py: .edu-focused web search helper
-- tools/similarity_tool.py: Simple bag-of-words cosine similarity
+- tools/similarity_tool.py: Lexical similarity helper
 - tools/solve_tool.py: ChatOllama-based local solve helper with placeholder fallback
 
 ## Setup
@@ -27,13 +27,20 @@ Given a math problem as text or image:
 	- source .venv/bin/activate
 2. Install dependencies:
 	- pip install -r requirements.txt
-3. Install and start Ollama (local):
+3. Install Tesseract OCR (required for image mode):
+	- macOS (Homebrew): brew install tesseract
+	- Ubuntu/Debian: sudo apt-get install tesseract-ocr
+	- Windows: install from https://github.com/UB-Mannheim/tesseract/wiki
+4. Install and start Ollama (local):
 	- Install from https://ollama.com/download
 	- ollama serve
-	- ollama pull qwen3.5:4b
-4. Configure environment variables:
+	- ollama pull qwen2.5-coder:1.5b
+5. Configure environment variables:
 	- cp .env.example .env
 	- Optional: change OLLAMA_MODEL or OLLAMA_BASE_URL in .env
+6. Verify Ollama API is reachable:
+	- curl -sS http://localhost:11434/api/tags
+	- Confirm your selected model appears in the response
 
 ## Run
 Text mode:
@@ -45,6 +52,17 @@ Image mode:
 ## Notes
 - This is intentionally simple and classroom-demo friendly.
 - Search node tries DuckDuckGo HTML and falls back to static .edu examples if needed.
-- Similarity currently uses basic token vectors.
-- Solver uses ChatOllama with default local model qwen3.5:4b.
-- TODO: Replace similarity with Math2Vec or other math-aware embeddings.
+- Similarity uses simple lexical overlap as a baseline.
+- Solver uses ChatOllama with default local model qwen2.5-coder:1.5b.
+
+## Local evaluation
+Run the 10-query local evaluation and generate a summary report:
+- python evaluation/run_evaluation.py
+
+Artifacts written by the evaluation script:
+- evaluation/results.json
+- evaluation/reflection.md
+
+Class deliverables:
+- deliverables/proposal.md
+- deliverables/final_reflection.md

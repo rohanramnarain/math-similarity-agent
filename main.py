@@ -12,6 +12,7 @@ import json
 from dotenv import load_dotenv
 
 from graph import build_graph
+from tools.solve_tool import get_startup_warning
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,12 +27,13 @@ def main() -> None:
 	"""Run graph and print normalized problem, match, score, and final solution."""
 	load_dotenv()
 	args = parse_args()
+	startup_warning = get_startup_warning()
 
 	app = build_graph()
 	state = {
 		"raw_text": args.text,
 		"image_path": args.image,
-		"errors": [],
+		"errors": [f"Startup check: {startup_warning}"] if startup_warning else [],
 	}
 
 	result = app.invoke(state)

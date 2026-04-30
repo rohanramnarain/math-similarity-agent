@@ -10,7 +10,7 @@ The similarity stage ranks candidates with Jaccard overlap and picks one best ma
 
 Evaluation already exists in this project as a reproducible local harness that judges outputs across ten fixed prompts and writes JSON plus a technical report. The current harness evaluates three dimensions: retrieval relevance (0-2), solution utility (0-2), and prompt-specific answer correctness (0-2). It also runs an ablation that compares solving with retrieved similar context versus solving without that context. 
 
-In the latest run, average retrieval relevance was 0.2 out of 2, average solution utility was 2.0 out of 2 for both variants, and average lexical similarity was 0.043. The stricter correctness metric showed a meaningful difference: 1.8 out of 2 with context versus 2.0 out of 2 without context, with one prompt where context correlated with a worse final answer (derivative of x^3 + 2x). All runs still produced .edu retrieval URLs, no critical solve/input failures, and no placeholder outputs. 
+In the latest run, average retrieval relevance was 0.6 out of 2, average solution utility was 2.0 out of 2 for both variants, and average lexical similarity was 0.069. The stricter correctness metric was tied: 2.0 out of 2 with context and 2.0 out of 2 without context across all 10 prompts. All runs still produced .edu retrieval URLs, there were no critical solve/input failures, and no placeholder outputs, though 8 runs reported non-critical retrieval warnings.
 
 In practice, this means the system is stable as a demo pipeline, but context quality and ranking quality still need to improve before retrieved examples consistently help final correctness.
 

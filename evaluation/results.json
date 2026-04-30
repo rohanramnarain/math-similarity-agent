@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-04-22T19:37:27.738776",
+  "generated_at": "2026-04-29T21:50:55.911995",
   "query_count": 10,
   "comparison_mode": "with_context_vs_without_context",
   "summary": {
-    "avg_retrieval_relevance": 0.2,
+    "avg_retrieval_relevance": 0.6,
     "avg_solution_utility_with_context": 2,
     "avg_solution_utility_without_context": 2,
-    "avg_similarity_score": 0.043,
-    "avg_total_with_context": 2.2,
-    "avg_total_without_context": 2.2,
+    "avg_similarity_score": 0.069,
+    "avg_total_with_context": 2.6,
+    "avg_total_without_context": 2.6,
     "avg_total_delta_with_minus_without": 0,
-    "avg_answer_correctness_with_context": 1.8,
+    "avg_answer_correctness_with_context": 2,
     "avg_answer_correctness_without_context": 2,
-    "avg_answer_correctness_delta_with_minus_without": -0.2,
+    "avg_answer_correctness_delta_with_minus_without": 0,
     "correctness_with_context_better_count": 0,
-    "correctness_without_context_better_count": 1,
-    "correctness_tie_count": 9,
-    "avg_total_strict_with_context": 2,
-    "avg_total_strict_without_context": 2.2,
+    "correctness_without_context_better_count": 0,
+    "correctness_tie_count": 10,
+    "avg_total_strict_with_context": 2.6,
+    "avg_total_strict_without_context": 2.6,
     "with_context_better_count": 0,
     "without_context_better_count": 0,
     "tie_count": 10,
-    "error_run_count_with_context": 10,
-    "error_run_count_without_context": 10,
+    "error_run_count_with_context": 8,
+    "error_run_count_without_context": 8,
     "critical_error_run_count_with_context": 0,
     "critical_error_run_count_without_context": 0,
     "placeholder_run_count_with_context": 0,
@@ -33,88 +33,80 @@
     {
       "id": 1,
       "prompt": "Solve 2x + 3 = 11",
-      "retrieved_similar_text_used": "Paul's Online Math Notes - Solving Linear Equations Algebra notes with worked examples for solving linear equations step by step.",
+      "retrieved_similar_text_used": "Solving a System of Equations: Elimination Checkpoint 6.3.2. Solve the following system of equations using elimination: {7 = 2 x + 3 y 11 = 2 x + y",
       "output_with_context": {
         "normalized_user_problem": "solve 2x + 3 = 11",
         "retrieved_similar_problem": {
-          "title": "Paul's Online Math Notes - Solving Linear Equations",
-          "url": "https://tutorial.math.lamar.edu/Classes/Alg/SolveEqns.aspx",
-          "snippet": "Algebra notes with worked examples for solving linear equations step by step."
+          "title": "Solving a System of Equations: Elimination",
+          "url": "https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html",
+          "snippet": "Checkpoint 6.3.2. Solve the following system of equations using elimination: {7 = 2 x + 3 y 11 = 2 x + y"
         },
-        "similarity_score": 0.0,
+        "similarity_score": 0.2381,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the equation \\(2x + 3 = 11\\) step-by-step using the same approach as the similar problem provided:\n\n### Step 1: Subtract 3 from both sides of the equation\nTo isolate the term with \\(x\\), we need to move the constant term on the left side to the right side. We do this by subtracting 3 from both sides:\n\\[2x + 3 - 3 = 11 - 3\\]\nThis simplifies to:\n\\[2x = 8\\]\n\n### Step 2: Divide both sides by 2\nTo solve for \\(x\\), we need to isolate it by dividing both sides of the equation by the coefficient of \\(x\\). In this case, the coefficient is 2:\n\\[2x \\div 2 = 8 \\div 2\\]\nThis simplifies to:\n\\[x = 4\\]\n\n### Final Answer\nThe solution to the equation \\(2x + 3 = 11\\) is \\(x = 4\\).",
-        "errors": [
-          "No .edu candidates found from web search; using fallback examples"
-        ]
+        "final_solution": "Here is the step-by-step solution to the equation $2x + 3 = 11$.\n\n**Goal:** Isolate the variable $x$.\n\n**Step 1: Subtract 3 from both sides of the equation.**\nThe goal is to get the term with $x$ by itself. To undo the addition of 3, we subtract 3 from both sides to keep the equation balanced.\n$$2x + 3 - 3 = 11 - 3$$\n$$2x = 8$$\n\n**Step 2: Divide both sides by 2.**\nNow, $x$ is being multiplied by 2. To isolate $x$, we divide both sides by 2.\n$$\\frac{2x}{2} = \\frac{8}{2}$$\n$$x = 4$$\n\n**Check (Optional):**\nSubstitute $x=4$ back into the original equation to verify the solution:\n$$2(4) + 3 = 11$$\n$$8 + 3 = 11$$\n$$11 = 11$$\nThe solution is correct.\n\n**Final Solution:**\n$$x = 4$$",
+        "errors": []
       },
       "output_without_context": {
         "normalized_user_problem": "solve 2x + 3 = 11",
         "retrieved_similar_problem": {
-          "title": "Paul's Online Math Notes - Solving Linear Equations",
-          "url": "https://tutorial.math.lamar.edu/Classes/Alg/SolveEqns.aspx",
-          "snippet": "Algebra notes with worked examples for solving linear equations step by step."
+          "title": "Solving a System of Equations: Elimination",
+          "url": "https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html",
+          "snippet": "Checkpoint 6.3.2. Solve the following system of equations using elimination: {7 = 2 x + 3 y 11 = 2 x + y"
         },
-        "similarity_score": 0.0,
+        "similarity_score": 0.2381,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the equation step-by-step:\n\nGiven equation: \\(2x + 3 = 11\\)\n\nStep 1: Subtract 3 from both sides of the equation to isolate the term with \\(x\\).\n\\[2x + 3 - 3 = 11 - 3\\]\nThis simplifies to:\n\\[2x = 8\\]\n\nStep 2: Divide both sides by 2 to solve for \\(x\\).\n\\[2x \\div 2 = 8 \\div 2\\]\nThis simplifies to:\n\\[x = 4\\]\n\nTherefore, the solution to the equation \\(2x + 3 = 11\\) is \\(x = 4\\).",
-        "errors": [
-          "No .edu candidates found from web search; using fallback examples"
-        ]
+        "final_solution": "Here is the step-by-step solution to the equation $2x + 3 = 11$.\n\n**Goal:** Isolate the variable $x$.\n\n**Step 1: Subtract 3 from both sides of the equation.**\nTo get the term with $x$ by itself, we need to eliminate the $+3$ on the left side. We do this by performing the opposite operation (subtraction) on both sides to keep the equation balanced.\n\n$$2x + 3 - 3 = 11 - 3$$\n$$2x = 8$$\n\n**Step 2: Divide both sides by 2.**\nNow, $x$ is being multiplied by 2. To solve for $x$, we perform the opposite operation (division) on both sides.\n\n$$\\frac{2x}{2} = \\frac{8}{2}$$\n$$x = 4$$\n\n**Check (Optional but recommended):**\nSubstitute $x=4$ back into the original equation to ensure the solution is correct.\n$$2(4) + 3 = 11$$\n$$8 + 3 = 11$$\n$$11 = 11$$\nThe solution is correct.\n\n**Final Solution:**\n$$x = 4$$",
+        "errors": []
       },
-      "retrieval_relevance_score": 0,
+      "retrieval_relevance_score": 2,
       "solution_utility_with_context": 2,
       "solution_utility_without_context": 2,
       "answer_correctness_with_context": 2,
       "answer_correctness_without_context": 2,
-      "total_with_context": 2,
-      "total_without_context": 2,
-      "total_strict_with_context": 2,
-      "total_strict_without_context": 2,
+      "total_with_context": 4,
+      "total_without_context": 4,
+      "total_strict_with_context": 4,
+      "total_strict_without_context": 4,
       "solution_score_delta_with_minus_without": 0,
       "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 2,
       "prompt": "Solve 3x - 7 = 11",
-      "retrieved_similar_text_used": "Paul's Online Math Notes - Integrals Calculus I integration basics with antiderivative examples.",
+      "retrieved_similar_text_used": "PDF Math 127: Chinese Remainder Theorem - CMU Using the techniques of the previous section, we have the necessary tools to solve congruences of the form ax b (mod n). The Chinese Remainder Theorem gives us a tool to consider multiple such congruences simultaneously. First, let's just ensure that we understand how to solve ax b (mod n). Example 1. Find x such that 3x 7 (mod 10)",
       "output_with_context": {
         "normalized_user_problem": "solve 3x - 7 = 11",
         "retrieved_similar_problem": {
-          "title": "Paul's Online Math Notes - Integrals",
-          "url": "https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx",
-          "snippet": "Calculus I integration basics with antiderivative examples."
+          "title": "PDF Math 127: Chinese Remainder Theorem - CMU",
+          "url": "https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/ChineseRemainderTheorem.pdf",
+          "snippet": "Using the techniques of the previous section, we have the necessary tools to solve congruences of the form ax b (mod n). The Chinese Remainder Theorem gives us a tool to consider multiple such congruences simultaneously. First, let's just ensure that we understand how to solve ax b (mod n). Example 1. Find x such that 3x 7 (mod 10)"
         },
-        "similarity_score": 0.0526,
+        "similarity_score": 0.0784,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the equation \\(3x - 7 = 11\\) step-by-step:\n\nStep 1: Add 7 to both sides of the equation to isolate the term with \\(x\\).\n\\[3x - 7 + 7 = 11 + 7\\]\nThis simplifies to:\n\\[3x = 18\\]\n\nStep 2: Divide both sides by 3 to solve for \\(x\\).\n\\[3x \\div 3 = 18 \\div 3\\]\nThis simplifies to:\n\\[x = 6\\]\n\nTherefore, the solution to the equation \\(3x - 7 = 11\\) is \\(x = 6\\).",
-        "errors": [
-          "No .edu candidates found from web search; using fallback examples"
-        ]
+        "final_solution": "Here is the step-by-step solution to the equation $3x - 7 = 11$.\n\n**Goal:** Solve for $x$ in the equation $3x - 7 = 11$.\n\n**Step 1: Isolate the term with $x$.**\nTo get the term $3x$ by itself, we need to eliminate the constant term $(-7)$ from the left side of the equation. We do this by adding 7 to both sides of the equation.\n\n$$3x - 7 + 7 = 11 + 7$$\n$$3x = 18$$\n\n**Step 2: Solve for $x$.**\nNow that we have $3x = 18$, we need to isolate $x$ by dividing both sides of the equation by the coefficient of $x$, which is 3.\n\n$$\\frac{3x}{3} = \\frac{18}{3}$$\n$$x = 6$$\n\n**Step 3: Check the solution (Optional but recommended).**\nSubstitute $x=6$ back into the original equation to ensure the equality holds true.\n\n$$3(6) - 7 = 11$$\n$$18 - 7 = 11$$\n$$11 = 11$$\nThe solution is correct.\n\n**Final Answer:**\n$$x = 6$$",
+        "errors": []
       },
       "output_without_context": {
         "normalized_user_problem": "solve 3x - 7 = 11",
         "retrieved_similar_problem": {
-          "title": "Paul's Online Math Notes - Integrals",
-          "url": "https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx",
-          "snippet": "Calculus I integration basics with antiderivative examples."
+          "title": "PDF Math 127: Chinese Remainder Theorem - CMU",
+          "url": "https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/ChineseRemainderTheorem.pdf",
+          "snippet": "Using the techniques of the previous section, we have the necessary tools to solve congruences of the form ax b (mod n). The Chinese Remainder Theorem gives us a tool to consider multiple such congruences simultaneously. First, let's just ensure that we understand how to solve ax b (mod n). Example 1. Find x such that 3x 7 (mod 10)"
         },
-        "similarity_score": 0.0526,
+        "similarity_score": 0.0784,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the equation \\(3x - 7 = 11\\) step-by-step:\n\nStep 1: Add 7 to both sides of the equation to isolate the term with \\(x\\).\n\\[3x - 7 + 7 = 11 + 7\\]\nThis simplifies to:\n\\[3x = 18\\]\n\nStep 2: Divide both sides by 3 to solve for \\(x\\).\n\\[3x \\div 3 = 18 \\div 3\\]\nThis simplifies to:\n\\[x = 6\\]\n\nTherefore, the solution to the equation \\(3x - 7 = 11\\) is \\(x = 6\\).",
-        "errors": [
-          "No .edu candidates found from web search; using fallback examples"
-        ]
+        "final_solution": "Here is the step-by-step solution to the equation $3x - 7 = 11$.\n\n**Goal:** Isolate the variable $x$.\n\n**Step 1: Add 7 to both sides of the equation.**\nTo get the term with $x$ by itself, we need to undo the subtraction of 7. We do this by adding 7 to both sides of the equation to keep it balanced.\n$$3x - 7 + 7 = 11 + 7$$\n$$3x = 18$$\n\n**Step 2: Divide both sides by 3.**\nNow, $x$ is being multiplied by 3. To solve for $x$, we divide both sides of the equation by 3.\n$$\\frac{3x}{3} = \\frac{18}{3}$$\n$$x = 6$$\n\n**Check (Optional):**\nSubstitute $x=6$ back into the original equation to make sure the solution is correct.\n$$3(6) - 7 = 11$$\n$$18 - 7 = 11$$\n$$11 = 11$$\nThe solution is correct.\n\n**Final Solution:**\n$$x = 6$$",
+        "errors": []
       },
-      "retrieval_relevance_score": 0,
+      "retrieval_relevance_score": 2,
       "solution_utility_with_context": 2,
       "solution_utility_without_context": 2,
       "answer_correctness_with_context": 2,
       "answer_correctness_without_context": 2,
-      "total_with_context": 2,
-      "total_without_context": 2,
-      "total_strict_with_context": 2,
-      "total_strict_without_context": 2,
+      "total_with_context": 4,
+      "total_without_context": 4,
+      "total_strict_with_context": 4,
+      "total_strict_without_context": 4,
       "solution_score_delta_with_minus_without": 0,
       "correctness_score_delta_with_minus_without": 0
     },
@@ -131,7 +123,7 @@
         },
         "similarity_score": 0.0,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the given quadratic equation step-by-step using the same approach as the provided context:\n\n1. **Identify the coefficients:**\n   The quadratic equation is \\(x^2 + 5x + 6\\). Here, the coefficients are:\n   - \\(a = 1\\) (coefficient of \\(x^2\\))\n   - \\(b = 5\\) (coefficient of \\(x\\))\n   - \\(c = 6\\) (constant term)\n\n2. **Determine the discriminant:**\n   The discriminant (\\(\\Delta\\)) is given by:\n   \\[\n   \\Delta = b^2 - 4ac\n   \\]\n   Substituting the values of \\(a\\), \\(b\\), and \\(c\\):\n   \\[\n   \\Delta = 5^2 - 4 \\cdot 1 \\cdot 6 = 25 - 24 = 1\n   \\]\n\n3. **Use the discriminant to find the roots:**\n   Since the discriminant is positive (\\(\\Delta > 0\\)), there are two distinct real roots. The quadratic formula is:\n   \\[\n   x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}\n   \\]\n   Substituting the values of \\(a\\), \\(b\\), and \\(\\Delta\\):\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{1}}{2 \\cdot 1} = \\frac{-5 \\pm 1}{2}\n   \\]\n\n4. **Solve for the roots:**\n   - For the positive root:\n     \\[\n     x = \\frac{-5 + 1}{2} = \\frac{-4}{2} = -2\n     \\]\n   - For the negative root:\n     \\[\n     x = \\frac{-5 - 1}{2} = \\frac{-6}{2} = -3\n     \\]\n\nTherefore, the roots of the quadratic equation \\(x^2 + 5x + 6\\) are \\(\\boxed{-2}\\) and \\(\\boxed{-3}\\).",
+        "final_solution": "Here is the step-by-step solution to factor the quadratic expression $x^2 + 5x + 6$.\n\n**Goal:** Factor the quadratic trinomial $x^2 + 5x + 6$.\n\n**Method:**\nWe are looking for two numbers that satisfy two conditions:\n1.  When multiplied together, they equal the constant term (which is 6).\n2.  When added together, they equal the coefficient of the $x$ term (which is 5).\n\n**Step 1: List the pairs of factors for the constant term (6).**\nThe pairs of integers that multiply to 6 are:\n*   1 and 6 (Since $1 \\times 6 = 6$)\n*   2 and 3 (Since $2 \\times 3 = 6$)\n*   -1 and -6 (Since $(-1) \\times (-6) = 6$)\n*   -2 and -3 (Since $(-2) \\times (-3) = 6$)\n\n**Step 2: Check which pair adds up to the coefficient of the $x$ term (5).**\n*   $1 + 6 = 7$ (Incorrect)\n*   $2 + 3 = 5$ (Correct!)\n*   $-1 + (-6) = -7$ (Incorrect)\n*   $-2 + (-3) = -5$ (Incorrect)\n\nThe two numbers we are looking for are 2 and 3.\n\n**Step 3: Write the factored form.**\nSince we found the numbers 2 and 3, we can write the quadratic expression as the product of two binomials:\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Check (Optional):**\nTo verify the answer, use the FOIL method (First, Outer, Inner, Last):\n*   **F**irst: $x \\cdot x = x^2$\n*   **O**uter: $x \\cdot 3 = 3x$\n*   **I**nner: $2 \\cdot x = 2x$\n*   **L**ast: $2 \\cdot 3 = 6$\nCombine the terms: $x^2 + 3x + 2x + 6 = x^2 + 5x +",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -145,7 +137,7 @@
         },
         "similarity_score": 0.0,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the given quadratic equation step-by-step:\n\n1. **Identify the coefficients:**\n   The quadratic equation is \\(x^2 + 5x + 6\\). Here, the coefficients are:\n   - \\(a = 1\\) (coefficient of \\(x^2\\))\n   - \\(b = 5\\) (coefficient of \\(x\\))\n   - \\(c = 6\\) (constant term)\n\n2. **Use the quadratic formula:**\n   The quadratic formula is given by:\n   \\[\n   x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n   \\]\n\n3. **Substitute the coefficients into the formula:**\n   Substitute \\(a = 1\\), \\(b = 5\\), and \\(c = 6\\) into the quadratic formula:\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{5^2 - 4 \\cdot 1 \\cdot 6}}{2 \\cdot 1}\n   \\]\n\n4. **Simplify inside the square root:**\n   Calculate the discriminant (\\(b^2 - 4ac\\)):\n   \\[\n   b^2 = 5^2 = 25\n   \\]\n   \\[\n   4ac = 4 \\cdot 1 \\cdot 6 = 24\n   \\]\n   \\[\n   b^2 - 4ac = 25 - 24 = 1\n   \\]\n\n5. **Substitute the discriminant back into the formula:**\n   \\[\n   x = \\frac{-5 \\pm \\sqrt{1}}{2}\n   \\]\n\n6. **Simplify the square root and solve for \\(x\\):**\n   \\[\n   \\sqrt{1} = 1\n   \\]\n   So, we have:\n   \\[\n   x = \\frac{-5 + 1}{2} \\quad \\text{or} \\quad x = \\frac{-5 - 1}{2}\n   \\]\n\n7. **Calculate the two solutions:**\n   \\[\n   x = \\frac{-4}{2} = -2\n   \\]\n   \\[\n   x = \\frac{-6}{2} = -3\n   \\]\n\nTherefore, the solutions to the quadratic equation \\(x^2 + 5x + 6\\) are:\n\\[\n\\boxed{-2 \\text{ and } -3}\n\\]",
+        "final_solution": "Here is the step-by-step solution to factor the quadratic expression $x^2 + 5x + 6$.\n\n**Goal:** Factor the quadratic trinomial $x^2 + 5x + 6$.\n\n**Method:**\nWe are looking for two binomials of the form $(x + a)(x + b)$ such that when multiplied together, they result in the original expression:\n$$(x + a)(x + b) = x^2 + (a+b)x + ab$$\n\nComparing this to our expression, $x^2 + 5x + 6$, we need to find two numbers, $a$ and $b$, that satisfy two conditions:\n1. Their product ($a \\cdot b$) equals the constant term (6).\n2. Their sum ($a + b$) equals the coefficient of the $x$ term (5).\n\n**Step 1: List the pairs of factors for the constant term (6).**\nThe pairs of integers that multiply to 6 are:\n* $1 \\times 6 = 6$\n* $2 \\times 3 = 6$\n* $(-1) \\times (-6) = 6$\n* $(-2) \\times (-3) = 6$\n\n**Step 2: Check which pair sums to the coefficient of the $x$ term (5).**\n* $1 + 6 = 7$ (Incorrect)\n* $2 + 3 = 5$ (Correct!)\n* $(-1) + (-6) = -7$ (Incorrect)\n* $(-2) + (-3) = -5$ (Incorrect)\n\nThe two numbers we are looking for are $a=2$ and $b=3$.\n\n**Step 3: Write the factored form.**\nUsing these numbers, we can write the expression as:\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Verification (Optional):**\nWe can check the answer by multiplying the factors back together (using FOIL):\n$$(x + 2)(x + 3) = x(x) + x(3) + 2(x) + 2(3)$$\n$$= x^2 + 3x + 2x + 6$$\n$$= x^2 + 5x + 6$$",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -175,7 +167,7 @@
         },
         "similarity_score": 0.0526,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the equation \\(x^2 - 9 = 0\\) step-by-step using the same approach as we would for solving similar problems.\n\n### Step 1: Factor the quadratic equation\nThe given equation is:\n\\[ x^2 - 9 = 0 \\]\n\nWe can factor this quadratic expression by recognizing that it is a difference of squares. The general form of a difference of squares is:\n\\[ a^2 - b^2 = (a + b)(a - b) \\]\n\nIn our case, \\(a^2 = x^2\\) and \\(b^2 = 9\\). Therefore, we can rewrite the equation as:\n\\[ x^2 - 9 = (x + 3)(x - 3) = 0 \\]\n\n### Step 2: Set each factor equal to zero\nTo solve for \\(x\\), we set each factor equal to zero and solve for \\(x\\):\n\\[ x + 3 = 0 \\quad \\text{or} \\quad x - 3 = 0 \\]\n\n### Step 3: Solve each equation\nSolving these equations gives us:\n\\[ x + 3 = 0 \\implies x = -3 \\]\n\\[ x - 3 = 0 \\implies x = 3 \\]\n\n### Final Answer\nThe solutions to the equation \\(x^2 - 9 = 0\\) are:\n\\[ x = -3 \\quad \\text{and} \\quad x = 3 \\]",
+        "final_solution": "Here is the step-by-step solution to the equation $x^2 - 9 = 0$.\n\n**Goal:** Solve for $x$ in the equation $x^2 - 9 = 0$.\n\n**Step 1: Isolate the $x^2$ term.**\nTo do this, add 9 to both sides of the equation:\n$$x^2 - 9 + 9 = 0 + 9$$\n$$x^2 = 9$$\n\n**Step 2: Solve for $x$ by taking the square root of both sides.**\nWhen you take the square root of both sides of an equation, remember to include both the positive and negative roots:\n$$\\sqrt{x^2} = \\pm\\sqrt{9}$$\n$$x = \\pm 3$$\n\n**Step 3: State the solutions.**\nThe two solutions for $x$ are:\n$$x = 3 \\quad \\text{and} \\quad x = -3$$\n\n**Check (Optional):**\n*   If $x = 3$: $(3)^2 - 9 = 9 - 9 = 0$. (Correct)\n*   If $x = -3$: $(-3)^2 - 9 = 9 - 9 = 0$. (Correct)\n\n**Final Solution:**\nThe solutions to the equation $x^2 - 9 = 0$ are $x = 3$ and $x = -3$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -189,7 +181,7 @@
         },
         "similarity_score": 0.0526,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the equation \\(x^2 - 9 = 0\\) step-by-step using the same approach as we would for solving quadratic equations.\n\n1. **Identify the given equation:**\n   \\[\n   x^2 - 9 = 0\n   \\]\n\n2. **Recognize that this is a difference of squares:**\n   The expression \\(x^2 - 9\\) can be factored using the difference of squares formula, which states:\n   \\[\n   a^2 - b^2 = (a + b)(a - b)\n   \\]\n   Here, \\(a = x\\) and \\(b = 3\\), because \\(9 = 3^2\\).\n\n3. **Apply the difference of squares formula:**\n   Substitute \\(x\\) for \\(a\\) and \\(3\\) for \\(b\\):\n   \\[\n   x^2 - 9 = (x + 3)(x - 3)\n   \\]\n\n4. **Set each factor equal to zero:**\n   To solve the equation, we set each factor equal to zero:\n   \\[\n   x + 3 = 0 \\quad \\text{or} \\quad x - 3 = 0\n   \\]\n\n5. **Solve for \\(x\\) in each equation:**\n   - For \\(x + 3 = 0\\):\n     \\[\n     x = -3\n     \\]\n   - For \\(x - 3 = 0\\):\n     \\[\n     x = 3\n     \\]\n\n6. **Write the final solution:**\n   The solutions to the equation \\(x^2 - 9 = 0\\) are:\n   \\[\n   x = -3 \\quad \\text{and} \\quad x = 3\n   \\]\n\nTherefore, the final answer is:\n\\[\n\\boxed{x = -3 \\text{ or } x = 3}\n\\]",
+        "final_solution": "Here is the step-by-step solution to the equation $x^2 - 9 = 0$.\n\n**Goal:** Solve for $x$ in the equation $x^2 - 9 = 0$.\n\n**Step 1: Isolate the $x^2$ term.**\nTo do this, we need to move the constant term (-9) to the other side of the equation by adding 9 to both sides.\n$$x^2 - 9 = 0$$\n$$x^2 = 9$$\n\n**Step 2: Solve for $x$ by taking the square root of both sides.**\nWhen you take the square root of both sides of an equation, remember to consider both the positive and negative roots.\n$$\\sqrt{x^2} = \\pm\\sqrt{9}$$\n$$x = \\pm 3$$\n\n**Step 3: State the solutions.**\nThis gives us two possible solutions for $x$:\n$$x = 3 \\quad \\text{or} \\quad x = -3$$\n\n**Check (Optional):**\n*   If $x = 3$: $(3)^2 - 9 = 9 - 9 = 0$. (Correct)\n*   If $x = -3$: $(-3)^2 - 9 = 9 - 9 = 0$. (Correct)\n\n**Final Solution:**\nThe solutions to the equation $x^2 - 9 = 0$ are $x = 3$ and $x = -3$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -219,7 +211,7 @@
         },
         "similarity_score": 0.05,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the user's new problem step-by-step using the similar solved problem as supporting context.\nThe user's problem is to find the derivative of \\( x^3 + 2x \\).\nTo solve this, we can use the power rule for differentiation. The power rule states that if \\( f(x) = x^n \\), then \\( f'(x) = nx^{n-1} \\).\n\nLet's apply the power rule to each term in the expression \\( x^3 + 2x \\):\n1. For the term \\( x^3 \\):\n   - The exponent is 3.\n   - Applying the power rule: \\( 3x^{3-1} = 3x^2 \\).\n\n2. For the term \\( 2x \\):\n   - The exponent is 1.\n   - Applying the power rule: \\( 1 \\cdot 2x^{1-1} = 2 \\cdot 2x^0 = 4 \\) (since any non-zero number raised to the power of 0 is 1).\n\nNow, we combine the results from both terms:\n\\[ x^3 + 2x = 3x^2 + 4. \\]\n\nTherefore, the derivative of \\( x^3 + 2x \\) is:\n\\[ \\boxed{3x^2 + 4}. \\]",
+        "final_solution": "Here is the step-by-step solution to find the derivative of $x^3 + 2x$.\n\n**Concept:**\nTo find the derivative of a function, we use the power rule, which states that the derivative of $x^n$ is $nx^{n-1}$, and the rule that the derivative of a constant times a function is the constant times the derivative of the function. We also use the fact that the derivative of a constant term is zero.\n\n**Problem:**\nFind the derivative of $f(x) = x^3 + 2x$.\n\n**Step 1: Apply the Sum Rule**\nThe derivative of a sum of terms is the sum of the derivatives of those terms:\n$$\\frac{d}{dx}(x^3 + 2x) = \\frac{d}{dx}(x^3) + \\frac{d}{dx}(2x)$$\n\n**Step 2: Find the derivative of the first term, $\\frac{d}{dx}(x^3)$**\nUsing the power rule ($n=3$):\n$$\\frac{d}{dx}(x^3) = 3x^{3-1} = 3x^2$$\n\n**Step 3: Find the derivative of the second term, $\\frac{d}{dx}(2x)$**\nWe can rewrite $2x$ as $2x^1$. Using the constant multiple rule and the power rule ($n=1$):\n$$\\frac{d}{dx}(2x) = 2 \\cdot \\frac{d}{dx}(x^1) = 2 \\cdot (1x^{1-1}) = 2 \\cdot (1x^0) = 2 \\cdot 1 = 2$$\n\n**Step 4: Combine the results**\nAdd the derivatives found in Step 2 and Step 3:\n$$\\frac{d}{dx}(x^3 + 2x) = 3x^2 + 2$$\n\n**Final Solution:**\nThe derivative of $x^3 + 2x$ is $3x^2 + 2$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -233,7 +225,7 @@
         },
         "similarity_score": 0.05,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the user's problem step-by-step using the similar solved problem as supporting context.\n\n### Similar Problem:\nFind the derivative of \\( f(x) = x^3 + 2x \\).\n\nTo find the derivative of \\( f(x) = x^3 + 2x \\), we will use the power rule. The power rule states that if \\( f(x) = ax^n \\), then \\( f'(x) = nax^{n-1} \\).\n\nLet's apply this rule to each term in the function:\n\n1. For the term \\( x^3 \\):\n   - The coefficient \\( a = 1 \\)\n   - The exponent \\( n = 3 \\)\n   - Applying the power rule: \\( f'(x) = 3x^{3-1} = 3x^2 \\)\n\n2. For the term \\( 2x \\):\n   - The coefficient \\( a = 2 \\)\n   - The exponent \\( n = 1 \\)\n   - Applying the power rule: \\( f'(x) = 1 \\cdot 2x^{1-1} = 2 \\cdot 1 = 2 \\)\n\nNow, we combine the derivatives of each term to get the derivative of the entire function:\n\n\\[ f'(x) = 3x^2 + 2 \\]\n\n### Final Solution:\nThe derivative of \\( x^3 + 2x \\) is \\(\\boxed{3x^2 + 2}\\).",
+        "final_solution": "Here is the step-by-step solution to find the derivative of $x^3 + 2x$.\n\n**Concept:**\nTo find the derivative of a function, we use the power rule, which states that the derivative of $x^n$ is $nx^{n-1}$, and the rule that the derivative of a constant times a function is the constant times the derivative of the function. We also use the fact that the derivative of a constant term is zero.\n\n**Problem:**\nFind the derivative of $f(x) = x^3 + 2x$.\n\n**Step 1: Apply the Sum Rule**\nThe derivative of a sum of terms is the sum of the derivatives of those terms:\n$$\\frac{d}{dx}(x^3 + 2x) = \\frac{d}{dx}(x^3) + \\frac{d}{dx}(2x)$$\n\n**Step 2: Find the derivative of the first term, $\\frac{d}{dx}(x^3)$**\nUsing the power rule ($n=3$):\n$$\\frac{d}{dx}(x^3) = 3x^{3-1} = 3x^2$$\n\n**Step 3: Find the derivative of the second term, $\\frac{d}{dx}(2x)$**\nWe can rewrite $2x$ as $2x^1$. Using the constant multiple rule and the power rule ($n=1$):\n$$\\frac{d}{dx}(2x) = 2 \\cdot \\frac{d}{dx}(x^1) = 2 \\cdot (1x^{1-1}) = 2 \\cdot (1x^0) = 2 \\cdot 1 = 2$$\n\n**Step 4: Combine the results**\nSubstitute the derivatives from Step 2 and Step 3 back into the equation from Step 1:\n$$\\frac{d}{dx}(x^3 + 2x) = 3x^2 + 2$$\n\n**Final Solution:**\nThe derivative of $x^3 + 2x$ is $3x^2 + 2$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -241,14 +233,14 @@
       "retrieval_relevance_score": 0,
       "solution_utility_with_context": 2,
       "solution_utility_without_context": 2,
-      "answer_correctness_with_context": 0,
+      "answer_correctness_with_context": 2,
       "answer_correctness_without_context": 2,
       "total_with_context": 2,
       "total_without_context": 2,
-      "total_strict_with_context": 0,
+      "total_strict_with_context": 2,
       "total_strict_without_context": 2,
       "solution_score_delta_with_minus_without": 0,
-      "correctness_score_delta_with_minus_without": -2
+      "correctness_score_delta_with_minus_without": 0
     },
     {
       "id": 6,
@@ -263,7 +255,7 @@
         },
         "similarity_score": 0.0952,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the new problem step-by-step using the similar solved problem as context.\nTo find the derivative of \\((x^2 + 1)(x - 4)\\), we can use the product rule. The product rule states that if you have a function \\(f(x) = u(x)v(x)\\), then the derivative \\(f'(x)\\) is given by:\n\\[ f'(x) = u'(x)v(x) + u(x)v'(x) \\]\n\nIn this problem, let \\(u(x) = x^2 + 1\\) and \\(v(x) = x - 4\\). We need to find the derivatives of \\(u(x)\\) and \\(v(x)\\):\n\\[ u'(x) = \\frac{d}{dx}(x^2 + 1) = 2x \\]\n\\[ v'(x) = \\frac{d}{dx}(x - 4) = 1 \\]\n\nNow, we apply the product rule:\n\\[ f'(x) = (2x)(x - 4) + (x^2 + 1)(1) \\]\n\nNext, we distribute and simplify:\n\\[ f'(x) = 2x^2 - 8x + x^2 + 1 \\]\n\\[ f'(x) = 3x^2 - 8x + 1 \\]\n\nTherefore, the derivative of \\((x^2 + 1)(x - 4)\\) is:\n\\[ \\boxed{3x^2 - 8x + 1} \\]",
+        "final_solution": "Here is the step-by-step solution to find the derivative of $(x^2 + 1)(x - 4)$.\n\n**1. Expand the function**\n\nFirst, we need to multiply the two factors together to get a single polynomial expression:\n$$f(x) = (x^2 + 1)(x - 4)$$\nUsing the distributive property (FOIL method or simple multiplication):\n$$f(x) = x^2(x) + x^2(-4) + 1(x) + 1(-4)$$\n$$f(x) = x^3 - 4x^2 + x - 4$$\n\n**2. Find the derivative using the Power Rule**\n\nNow we find the derivative, $f'(x)$, by applying the power rule ($\\frac{d}{dx}(x^n) = nx^{n-1}$) and the rule that the derivative of a constant is zero.\n\n$$\\frac{d}{dx}(x^3) = 3x^{3-1} = 3x^2$$\n$$\\frac{d}{dx}(-4x^2) = -4 \\cdot (2x^{2-1}) = -8x$$\n$$\\frac{d}{dx}(x) = 1x^{1-1} = 1x^0 = 1$$\n$$\\frac{d}{dx}(-4) = 0$$\n\n**3. Combine the terms**\n\nAdding the derivatives of each term gives us the final derivative:\n$$f'(x) = 3x^2 - 8x + 1 + 0$$\n$$f'(x) = 3x^2 - 8x + 1$$\n\n---\n**Alternative Method (Using the Product Rule)**\n\nWe can also use the Product Rule, which states that if $f(x) = g(x)h(x)$, then $f'(x) = g'(x)h(x) + g(x)h'(x)$.\n\nLet $g(x) = x^2 + 1$ and $h(x) = x - 4$.\n\n1. **Find the derivatives of $g(x)$ and $h(x)$:**\n   $$g'(x) = \\frac{d}{dx}(x^2 + 1) = 2x$$\n   $$h'(x) = \\frac",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -277,7 +269,7 @@
         },
         "similarity_score": 0.0952,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the given problem step-by-step using the similar solved problem as supporting context.\n\n### Similar Problem:\nFind the derivative of \\( f(x) = x^3 + 2x \\).\n\n**Solution:**\nTo find the derivative of \\( f(x) = x^3 + 2x \\), we use the power rule. The power rule states that if \\( f(x) = x^n \\), then \\( f'(x) = nx^{n-1} \\).\n\nApplying this rule to each term in \\( f(x) \\):\n\n1. For \\( x^3 \\):\n   \\[\n   \\frac{d}{dx}(x^3) = 3x^2\n   \\]\n\n2. For \\( 2x \\):\n   \\[\n   \\frac{d}{dx}(2x) = 2\n   \\]\n\nAdding these results together gives us the derivative of \\( f(x) \\):\n\n\\[\nf'(x) = 3x^2 + 2\n\\]\n\n### New Problem:\nFind the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\).\n\n**Solution:**\nTo find the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\), we use the product rule. The product rule states that if \\( g(x) = u(x)v(x) \\), then \\( g'(x) = u'(x)v(x) + u(x)v'(x) \\).\n\nHere, let \\( u(x) = x^2 + 1 \\) and \\( v(x) = x - 4 \\).\n\nFirst, find the derivatives of \\( u(x) \\) and \\( v(x) \\):\n\n1. For \\( u(x) = x^2 + 1 \\):\n   \\[\n   u'(x) = 2x\n   \\]\n\n2. For \\( v(x) = x - 4 \\):\n   \\[\n   v'(x) = 1\n   \\]\n\nNow, apply the product rule:\n\n\\[\ng'(x) = u'(x)v(x) + u(x)v'(x)\n\\]\n\nSubstitute \\( u(x) \\), \\( u'(x) \\), \\( v(x) \\), and \\( v'(x) \\) into the formula:\n\n\\[\ng'(x) = (2x)(x - 4) + (x^2 + 1)(1)\n\\]\n\nSimplify each term:\n\n1. For \\( (2x)(x - 4) \\):\n   \\[\n   (2x)(x - 4) = 2x^2 - 8x\n   \\]\n\n2. For \\( (x^2 + 1)(1) \\):\n   \\[\n   (x^2 + 1)(1) = x^2 + 1\n   \\]\n\nAdd these results together:\n\n\\[\ng'(x) = 2x^2 - 8x + x^2 + 1\n\\]\n\nCombine like terms:\n\n\\[\ng'(x) = 3x^2 - 8x + 1\n\\]\n\nTherefore, the derivative of \\( g(x) = (x^2 + 1)(x - 4) \\) is:\n\n\\[\n\\boxed{3x^2 - 8x + 1}\n\\]",
+        "final_solution": "Here is the step-by-step solution to find the derivative of $(x^2 + 1)(x - 4)$.\n\n**Problem:** Find the derivative of $f(x) = (x^2 + 1)(x - 4)$.\n\n**Step 1: Expand the function (Optional but helpful)**\n\nFirst, we can multiply the two factors together to get a polynomial in standard form:\n$$f(x) = (x^2 + 1)(x - 4)$$\n$$f(x) = x^2(x) + x^2(-4) + 1(x) + 1(-4)$$\n$$f(x) = x^3 - 4x^2 + x - 4$$\n\n**Step 2: Find the derivative using the Power Rule**\n\nNow we find the derivative of the expanded polynomial, $f'(x)$, using the power rule ($\\frac{d}{dx}(x^n) = nx^{n-1}$) and the rule that the derivative of a constant is zero.\n\n$$f'(x) = \\frac{d}{dx}(x^3) - \\frac{d}{dx}(4x^2) + \\frac{d}{dx}(x) - \\frac{d}{dx}(4)$$\n\nApplying the power rule to each term:\n*   $\\frac{d}{dx}(x^3) = 3x^{3-1} = 3x^2$\n*   $\\frac{d}{dx}(4x^2) = 4 \\cdot (2x^{2-1}) = 8x$\n*   $\\frac{d}{dx}(x) = 1x^{1-1} = 1x^0 = 1$\n*   $\\frac{d}{dx}(4) = 0$\n\nCombining these results:\n$$f'(x) = 3x^2 - 8x + 1 - 0$$\n$$f'(x) = 3x^2 - 8x + 1$$\n\n---\n**Alternative Method: Using the Product Rule**\n\nSince the original function is a product of two functions, $u(x) = x^2 + 1$ and $v(x) = x - 4$, we can use the Product Rule:\n$$\\frac{d}{dx}[u(x)v(",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -307,7 +299,7 @@
         },
         "similarity_score": 0.0,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the integral \\( \\int (2x + 5) \\, dx \\) step-by-step using the method of substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\( 2x + 5 \\), and we are integrating with respect to \\( x \\).\n\n### Step 2: Set up the integral\n\\[\n\\int (2x + 5) \\, dx\n\\]\n\n### Step 3: Use substitution\nLet's use the substitution method. Let:\n\\[\nu = 2x + 5\n\\]\nThen, we need to find \\( du \\) in terms of \\( dx \\):\n\\[\ndu = \\frac{d}{dx}(2x + 5) \\, dx = 2 \\, dx\n\\]\n\n### Step 4: Solve for \\( dx \\)\nFrom the substitution, we have:\n\\[\n2 \\, dx = du\n\\]\nDivide both sides by 2 to solve for \\( dx \\):\n\\[\ndx = \\frac{1}{2} \\, du\n\\]\n\n### Step 5: Substitute \\( u \\) and \\( dx \\) into the integral\nNow substitute \\( u = 2x + 5 \\) and \\( dx = \\frac{1}{2} \\, du \\) into the original integral:\n\\[\n\\int (2x + 5) \\, dx = \\int u \\cdot \\frac{1}{2} \\, du\n\\]\n\n### Step 6: Simplify the integral\nFactor out the constant \\(\\frac{1}{2}\\):\n\\[\n\\int u \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} \\int u \\, du\n\\]\n\n### Step 7: Integrate \\( u \\)\nThe integral of \\( u \\) with respect to \\( u \\) is:\n\\[\n\\int u \\, du = \\frac{u^2}{2}\n\\]\n\n### Step 8: Substitute back and add the constant of integration\nSubstitute \\(\\frac{u^2}{2}\\) back into the integral and add the constant of integration \\( C \\):\n\\[\n\\frac{1}{2} \\int u \\, du = \\frac{1}{2} \\cdot \\frac{u^2}{2} + C = \\frac{u^2}{4} + C\n\\]\n\n### Step 9: Substitute back the original variable \\( x \\)\nRecall that \\( u = 2x + 5 \\). Substitute this back into the expression:\n\\[\n\\frac{u^2}{4} + C = \\frac{(2x + 5)^2}{4} + C\n\\]\n\n### Step 10: Simplify the final answer\nExpand and simplify the expression inside the parentheses:\n\\[\n(2x + 5)^2 = 4x^2 + 20x + 25\n\\]\nSo,\n\\[\n\\frac{(2x + 5)^2}{4} = \\frac{4x^2 + 20x + 25}{4} = x^2 + 5x + \\frac{25}{4}\n\\]\n\n### Final Answer\n\\[\n\\boxed{x^2 + 5x + \\frac{25}{4}}\n\\]",
+        "final_solution": "Here is the step-by-step solution to the problem.\n\n**Problem:** Integrate $2x + 5$\n\n**Concept:** We need to find the antiderivative (or indefinite integral) of the function $f(x) = 2x + 5$. We use the linearity property of integration and the power rule for integration.\n\n**Step 1: Apply the linearity property of integration.**\nThe integral of a sum is the sum of the integrals:\n$$\\int (2x + 5) dx = \\int 2x dx + \\int 5 dx$$\n\n**Step 2: Integrate the first term ($\\int 2x dx$).**\nWe use the constant multiple rule and the power rule for integration ($\\int ax^n dx = a \\frac{x^{n+1}}{n+1} + C$):\n$$\\int 2x dx = 2 \\int x^1 dx$$\n$$= 2 \\left( \\frac{x^{1+1}}{1+1} \\right) + C_1$$\n$$= 2 \\left( \\frac{x^2}{2} \\right) + C_1$$\n$$= x^2 + C_1$$\n\n**Step 3: Integrate the second term ($\\int 5 dx$).**\nThe integral of a constant is the constant times $x$:\n$$\\int 5 dx = 5x + C_2$$\n\n**Step 4: Combine the results.**\nAdd the results from Step 2 and Step 3:\n$$\\int (2x + 5) dx = (x^2 + C_1) + (5x + C_2)$$\n$$\\int (2x + 5) dx = x^2 + 5x + C$$\n(where $C = C_1 + C_2$ is the constant of integration).\n\n**Final Solution:**\n$$\\int (2x + 5) dx = x^2 + 5x + C$$",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -321,7 +313,7 @@
         },
         "similarity_score": 0.0,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the integral \\( \\int (2x + 5) \\, dx \\) step-by-step using the method of integration by substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\( 2x + 5 \\), and we are integrating with respect to \\( x \\).\n\n### Step 2: Set up the integral\n\\[\n\\int (2x + 5) \\, dx = \\int 2x \\, dx + \\int 5 \\, dx\n\\]\n\n### Step 3: Integrate each term separately\n#### First term: \\( \\int 2x \\, dx \\)\nTo integrate \\( 2x \\), we use the power rule for integration. The power rule states that:\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\nwhere \\( n \\) is any real number except -1.\n\nApplying this rule to \\( 2x \\):\n\\[\n\\int 2x \\, dx = 2 \\int x \\, dx = 2 \\left( \\frac{x^2}{2} \\right) + C = x^2 + C\n\\]\n\n#### Second term: \\( \\int 5 \\, dx \\)\nThe integral of a constant is the constant times \\( x \\). So:\n\\[\n\\int 5 \\, dx = 5x + C\n\\]\n\n### Step 4: Combine the results\nNow, we combine the results of the two integrals:\n\\[\n\\int (2x + 5) \\, dx = x^2 + C + 5x + C\n\\]\n\n### Step 5: Simplify the expression\nCombine like terms:\n\\[\nx^2 + 5x + C + C = x^2 + 5x + 2C\n\\]\n\n### Final answer\nThe integral of \\( 2x + 5 \\) is:\n\\[\n\\boxed{x^2 + 5x + 2C}\n\\]",
+        "final_solution": "Here is the step-by-step solution to the problem.\n\n**Problem:** Integrate $2x + 5$\n\n**Concept:** We need to find the indefinite integral of the function $f(x) = 2x + 5$. We use the rules of integration, specifically the linearity property and the power rule for integration.\n\n**Step 1: Apply the Linearity Property of Integration**\nThe integral of a sum (or difference) of functions is the sum (or difference) of their integrals:\n$$\\int (2x + 5) dx = \\int 2x \\, dx + \\int 5 \\, dx$$\n\n**Step 2: Integrate the first term ($\\int 2x \\, dx$)**\nWe use the constant multiple rule and the power rule for integration ($\\int ax^n dx = a \\frac{x^{n+1}}{n+1} + C$, where $n \\neq -1$):\n$$\\int 2x \\, dx = 2 \\int x^1 \\, dx$$\nApplying the power rule ($n=1$):\n$$2 \\left( \\frac{x^{1+1}}{1+1} \\right) = 2 \\left( \\frac{x^2}{2} \\right) = x^2$$\n\n**Step 3: Integrate the second term ($\\int 5 \\, dx$)**\nThe integral of a constant ($c$) is $cx$:\n$$\\int 5 \\, dx = 5x$$\n\n**Step 4: Combine the results and add the constant of integration**\nCombine the results from Step 2 and Step 3, and add the constant of integration, $C$:\n$$\\int (2x + 5) dx = x^2 + 5x + C$$\n\n**Final Solution:**\n$$\\int (2x + 5) dx = x^2 + 5x + C$$",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -351,7 +343,7 @@
         },
         "similarity_score": 0.0556,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the integral of \\(x^2\\) step-by-step using the same approach as the retrieved similar problem.\n\n### Step 1: Understand the Integral\nThe integral we need to compute is:\n\\[\n\\int x^2 \\, dx\n\\]\n\n### Step 2: Set Up the Integral\nTo find the antiderivative of \\(x^2\\), we use the power rule for integration. The power rule states that:\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\nwhere \\(C\\) is the constant of integration.\n\n### Step 3: Apply the Power Rule\nIn our case, \\(n = 2\\). Applying the power rule:\n\\[\n\\int x^2 \\, dx = \\frac{x^{2+1}}{2+1} + C\n\\]\n\n### Step 4: Simplify the Expression\nSimplify the exponent and the denominator:\n\\[\n\\int x^2 \\, dx = \\frac{x^3}{3} + C\n\\]\n\n### Step 5: Write the Final Answer\nThe integral of \\(x^2\\) is:\n\\[\n\\boxed{\\frac{x^3}{3} + C}\n\\]\n\nThis solution follows the same steps as the retrieved similar problem, using the power rule for integration to find the antiderivative of \\(x^2\\).",
+        "final_solution": "Here is the step-by-step solution to compute the integral of $x^2$.\n\n**Problem:** Compute the integral of $x^2$.\n\n**Solution:**\n\nTo find the indefinite integral of $x^2$, we use the power rule for integration.\n\n**The Power Rule for Integration:**\nThe power rule states that for any real number $n \\neq -1$:\n$$\\int x^n dx = \\frac{x^{n+1}}{n+1} + C$$\n\n**Applying the Rule:**\nIn this case, the function is $f(x) = x^2$. Here, $n = 2$.\n\n1. **Increase the exponent by 1:**\n   $$n+1 = 2 + 1 = 3$$\n\n2. **Divide by the new exponent:**\n   $$\\int x^2 dx = \\frac{x^{2+1}}{2+1} + C$$\n   $$\\int x^2 dx = \\frac{x^3}{3} + C$$\n\n**Final Answer:**\nThe integral of $x^2$ is $\\frac{x^3}{3} + C$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -365,7 +357,7 @@
         },
         "similarity_score": 0.0556,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the integral of \\(x^2\\) step-by-step using the method of integration by substitution.\n\n### Step 1: Identify the integrand and the variable of integration\nThe integrand is \\(x^2\\), and we are integrating with respect to \\(x\\).\n\n### Step 2: Choose a substitution\nWe will use the substitution \\(u = x\\). This choice is simple because \\(du\\) is straightforward to compute:\n\\[ du = dx \\]\n\n### Step 3: Rewrite the integral in terms of the new variable\nSubstitute \\(u = x\\) and \\(du = dx\\) into the integral:\n\\[ \\int x^2 \\, dx = \\int u^2 \\, du \\]\n\n### Step 4: Integrate with respect to the new variable\nThe integral of \\(u^2\\) is a standard power rule. The power rule states that:\n\\[ \\int u^n \\, du = \\frac{u^{n+1}}{n+1} + C \\]\nwhere \\(C\\) is the constant of integration.\n\nApplying this rule to our integral:\n\\[ \\int u^2 \\, du = \\frac{u^{2+1}}{2+1} + C = \\frac{u^3}{3} + C \\]\n\n### Step 5: Substitute back the original variable\nNow, substitute \\(u\\) back with \\(x\\):\n\\[ \\frac{u^3}{3} + C = \\frac{x^3}{3} + C \\]\n\n### Final Answer\nThe integral of \\(x^2\\) is:\n\\[ \\boxed{\\frac{x^3}{3} + C} \\]",
+        "final_solution": "Here is the step-by-step solution to compute the integral of $x^2$.\n\n**Problem:** Compute the integral of $x^2$.\n$$\\int x^2 \\, dx$$\n\n**Step 1: Apply the Power Rule for Integration.**\nThe power rule for integration states that for any real number $n \\neq -1$:\n$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$$\n\nIn this case, $n = 2$.\n\n**Step 2: Apply the formula to the specific problem.**\nSubstitute $n=2$ into the power rule formula:\n$$\\int x^2 \\, dx = \\frac{x^{2+1}}{2+1} + C$$\n\n**Step 3: Simplify the expression.**\n$$\\int x^2 \\, dx = \\frac{x^3}{3} + C$$\n\n**Answer:**\nThe integral of $x^2$ is $\\frac{x^3}{3} + C$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -395,7 +387,7 @@
         },
         "similarity_score": 0.037,
         "used_similar_context": true,
-        "final_solution": "To solve the new problem step-by-step, let's use the context provided from Paul's Online Math Notes on factoring polynomials.\n\n1. **Identify the given dimensions of the rectangle:**\n   - Length = 8 units\n   - Width = 3 units\n\n2. **Recall the formula for the area of a rectangle:**\n   The area \\( A \\) of a rectangle is calculated using the formula:\n   \\[\n   A = \\text{length} \\times \\text{width}\n   \\]\n\n3. **Substitute the given dimensions into the formula:**\n   \\[\n   A = 8 \\, \\text{units} \\times 3 \\, \\text{units}\n   \\]\n\n4. **Perform the multiplication:**\n   \\[\n   A = 24 \\, \\text{square units}\n   \\]\n\nTherefore, the area of the rectangle is \\(\\boxed{24}\\) square units.",
+        "final_solution": "Here is the step-by-step solution to the problem.\n\n**Problem:** If a rectangle has length 8 and width 3, what is its area?\n\n**Concept:** The area ($A$) of a rectangle is calculated by multiplying its length ($L$) by its width ($W$).\nThe formula is: $A = L \\times W$\n\n**Step 1: Identify the given values.**\n*   Length ($L$) = 8\n*   Width ($W$) = 3\n\n**Step 2: Substitute the values into the area formula.**\n$$A = L \\times W$$\n$$A = 8 \\times 3$$\n\n**Step 3: Calculate the area.**\n$$A = 24$$\n\n**Answer:** The area of the rectangle is 24 square units.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -409,7 +401,7 @@
         },
         "similarity_score": 0.037,
         "used_similar_context": false,
-        "final_solution": "To solve this problem, I'll follow these steps:\n\n1. Identify the given dimensions of the rectangle.\n2. Recall the formula for calculating the area of a rectangle.\n3. Substitute the given values into the formula.\n4. Perform the multiplication to find the area.\n\nStep 1: The given dimensions are length = 8 and width = 3.\n\nStep 2: The formula for the area of a rectangle is:\n\\[ \\text{Area} = \\text{length} \\times \\text{width} \\]\n\nStep 3: Substitute the given values into the formula:\n\\[ \\text{Area} = 8 \\times 3 \\]\n\nStep 4: Perform the multiplication:\n\\[ \\text{Area} = 24 \\]\n\nTherefore, the area of the rectangle is \\(\\boxed{24}\\).",
+        "final_solution": "Here is the step-by-step solution to find the area of the rectangle.\n\n**Problem:** If a rectangle has length 8 and width 3, what is its area?\n\n**Concept:** The area ($A$) of a rectangle is calculated by multiplying its length ($L$) by its width ($W$).\nThe formula is:\n$$A = L \\times W$$\n\n**Step 1: Identify the given values.**\n*   Length ($L$) = 8\n*   Width ($W$) = 3\n\n**Step 2: Substitute the values into the area formula.**\n$$A = 8 \\times 3$$\n\n**Step 3: Calculate the area.**\n$$A = 24$$\n\n**Answer:**\nThe area of the rectangle is 24 square units.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -439,7 +431,7 @@
         },
         "similarity_score": 0.0833,
         "used_similar_context": true,
-        "final_solution": "Certainly! Let's solve the system of equations step-by-step:\n\n1. **Given Equations:**\n   \\[\n   x + y = 6\n   \\]\n   \\[\n   x - y = 2\n   \\]\n\n2. **Add the two equations together:**\n   \\[\n   (x + y) + (x - y) = 6 + 2\n   \\]\n   Simplifying this, we get:\n   \\[\n   2x = 8\n   \\]\n\n3. **Solve for \\( x \\):**\n   Divide both sides by 2:\n   \\[\n   x = \\frac{8}{2} = 4\n   \\]\n\n4. **Substitute \\( x = 4 \\) back into one of the original equations to solve for \\( y \\).** Let's use the first equation:\n   \\[\n   x + y = 6\n   \\]\n   Substitute \\( x = 4 \\):\n   \\[\n   4 + y = 6\n   \\]\n\n5. **Solve for \\( y \\):**\n   Subtract 4 from both sides:\n   \\[\n   y = 6 - 4 = 2\n   \\]\n\nTherefore, the solution to the system of equations is:\n\\[\nx = 4, \\quad y = 2\n\\]",
+        "final_solution": "Here is the step-by-step solution to the system of equations.\n\n**Problem:**\nSolve the system:\n1) $x + y = 6$\n2) $x - y = 2$\n\n**Method: Elimination**\nWe can use the elimination method because the $y$ terms have opposite signs ($+y$ in the first equation and $-y$ in the second equation). If we add the two equations together, the $y$ terms will cancel out.\n\nStep 1: Add Equation (1) and Equation (2)\n$$(x + y) + (x - y) = 6 + 2$$\n$$x + x + y - y = 8$$\n$$2x = 8$$\n\nStep 2: Solve for $x$\nDivide both sides by 2:\n$$\\frac{2x}{2} = \\frac{8}{2}$$\n$$x = 4$$\n\nStep 3: Substitute the value of $x$ back into either original equation to solve for $y$. We will use Equation (1):\n$$x + y = 6$$\nSubstitute $x=4$:\n$$4 + y = 6$$\n\nStep 4: Solve for $y$\nSubtract 4 from both sides:\n$$y = 6 - 4$$\n$$y = 2$$\n\n**Check the solution:**\nSubstitute $x=4$ and $y=2$ into the second equation ($x - y = 2$):\n$$4 - 2 = 2$$\n$$2 = 2$$\nThe solution is correct.\n\n**Final Solution:**\nThe solution to the system of equations is $x=4$ and $y=2$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]
@@ -453,7 +445,7 @@
         },
         "similarity_score": 0.0833,
         "used_similar_context": false,
-        "final_solution": "Certainly! Let's solve the system of equations step-by-step:\n\n1. **Identify the given equations:**\n   \\[\n   x + y = 6 \\quad \\text{(Equation 1)}\n   \\]\n   \\[\n   x - y = 2 \\quad \\text{(Equation 2)}\n   \\]\n\n2. **Add the two equations together to eliminate \\(y\\):**\n   \\[\n   (x + y) + (x - y) = 6 + 2\n   \\]\n   Simplifying this, we get:\n   \\[\n   2x = 8\n   \\]\n\n3. **Solve for \\(x\\) by dividing both sides by 2:**\n   \\[\n   x = \\frac{8}{2} = 4\n   \\]\n\n4. **Substitute the value of \\(x\\) back into one of the original equations to solve for \\(y\\).** Let's use Equation 1:\n   \\[\n   x + y = 6\n   \\]\n   Substitute \\(x = 4\\):\n   \\[\n   4 + y = 6\n   \\]\n\n5. **Solve for \\(y\\) by subtracting 4 from both sides:**\n   \\[\n   y = 6 - 4 = 2\n   \\]\n\nTherefore, the solution to the system of equations is:\n\\[\nx = 4 \\quad \\text{and} \\quad y = 2\n\\]",
+        "final_solution": "Here is the step-by-step solution to the system of equations:\n\n**Problem:**\nSolve the system:\n1) $x + y = 6$\n2) $x - y = 2$\n\n**Method: Elimination**\nWe can use the elimination method because the $y$ terms have opposite signs ($+y$ in the first equation and $-y$ in the second equation). If we add the two equations together, the $y$ terms will cancel out.\n\nStep 1: Add Equation (1) and Equation (2)\n$ (x + y) + (x - y) = 6 + 2 $\n$ x + y + x - y = 8 $\n$ 2x = 8 $\n\nStep 2: Solve for $x$\nDivide both sides by 2:\n$ x = \\frac{8}{2} $\n$ x = 4 $\n\nStep 3: Substitute the value of $x$ back into either original equation to solve for $y$. We will use Equation (1):\n$ x + y = 6 $\nSubstitute $x = 4$:\n$ 4 + y = 6 $\n\nStep 4: Solve for $y$\nSubtract 4 from both sides:\n$ y = 6 - 4 $\n$ y = 2 $\n\n**Check the solution:**\nWe check the solution $(x=4, y=2)$ in both original equations.\n\nEquation (1): $x + y = 6$\n$ 4 + 2 = 6 $ (True)\n\nEquation (2): $x - y = 2$\n$ 4 - 2 = 2 $ (True)\n\nThe solution is correct.\n\n**Final Solution:**\nThe solution to the system of equations is $x = 4$ and $y = 2$.",
         "errors": [
           "No .edu candidates found from web search; using fallback examples"
         ]

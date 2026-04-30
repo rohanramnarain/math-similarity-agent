@@ -7,22 +7,22 @@
 
 ## Aggregate Results
 - Queries: 10
-- Avg retrieval relevance (0-2): 0.2
+- Avg retrieval relevance (0-2): 0.6
 - Avg solution utility with context (0-2): 2
 - Avg solution utility without context (0-2): 2
-- Avg answer correctness with context (0-2): 1.8
+- Avg answer correctness with context (0-2): 2
 - Avg answer correctness without context (0-2): 2
-- Avg answer correctness delta (with - without): -0.2
-- Correctness wins (with / without / ties): 0 / 1 / 9
-- Avg lexical similarity score: 0.043
-- Avg total score with context (0-4): 2.2
-- Avg total score without context (0-4): 2.2
-- Avg strict total with context (retrieval + correctness, 0-4): 2
-- Avg strict total without context (retrieval + correctness, 0-4): 2.2
+- Avg answer correctness delta (with - without): 0
+- Correctness wins (with / without / ties): 0 / 0 / 10
+- Avg lexical similarity score: 0.069
+- Avg total score with context (0-4): 2.6
+- Avg total score without context (0-4): 2.6
+- Avg strict total with context (retrieval + correctness, 0-4): 2.6
+- Avg strict total without context (retrieval + correctness, 0-4): 2.6
 - Avg total score delta (with - without): 0
 - With-context wins / without-context wins / ties: 0 / 0 / 10
-- Runs with errors (with context): 10
-- Runs with errors (without context): 10
+- Runs with errors (with context): 8
+- Runs with errors (without context): 8
 - Runs with critical solve/input errors (with context): 0
 - Runs with critical solve/input errors (without context): 0
 - Runs with placeholder answers (with context): 0
@@ -30,14 +30,14 @@
 - Runs with .edu retrieval URLs: 10
 
 ## Strongest Cases (With Context)
+- Q1: total=4 (retrieval=2, solution=2), similarity=0.2381, url=https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html
+- Q2: total=4 (retrieval=2, solution=2), similarity=0.0784, url=https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/ChineseRemainderTheorem.pdf
 - Q6: total=3 (retrieval=1, solution=2), similarity=0.0952, url=https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html
-- Q10: total=3 (retrieval=1, solution=2), similarity=0.0833, url=https://tutorial.math.lamar.edu/Classes/Alg/Factoring.aspx
-- Q1: total=2 (retrieval=0, solution=2), similarity=0.0, url=https://tutorial.math.lamar.edu/Classes/Alg/SolveEqns.aspx
 
 ## Weakest Cases (With Context)
-- Q1: total=2 (retrieval=0, solution=2), similarity=0.0, url=https://tutorial.math.lamar.edu/Classes/Alg/SolveEqns.aspx
-- Q2: total=2 (retrieval=0, solution=2), similarity=0.0526, url=https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx
 - Q3: total=2 (retrieval=0, solution=2), similarity=0.0, url=https://tutorial.math.lamar.edu/Classes/Alg/Factoring.aspx
+- Q4: total=2 (retrieval=0, solution=2), similarity=0.0526, url=https://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx
+- Q5: total=2 (retrieval=0, solution=2), similarity=0.05, url=https://www.ms.uky.edu/ma109/textbook/sec-solvesystemelim.html
 
 ## Largest Context Gains
 - Q1: solution delta=0 (with=2, without=2)
@@ -45,9 +45,9 @@
 - Q3: solution delta=0 (with=2, without=2)
 
 ## Largest Correctness Deltas
-- Q5: correctness delta=-2 (with=0, without=2)
 - Q1: correctness delta=0 (with=2, without=2)
 - Q2: correctness delta=0 (with=2, without=2)
+- Q3: correctness delta=0 (with=2, without=2)
 
 ## Technical Interpretation
 - The graph reliably provides a retrieved context object, enabling an explicit ablation rather than a hypothetical comparison.

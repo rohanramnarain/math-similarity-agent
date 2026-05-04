@@ -46,13 +46,18 @@ Image mode:
 
 ## Notes
 - This is intentionally simple and classroom-demo friendly.
-- Search node tries DuckDuckGo HTML and falls back to static .edu examples if needed.
+- Search node tries DuckDuckGo HTML, then Bing RSS, and finally falls back to static .edu examples if needed.
 - Similarity uses simple lexical overlap as a baseline.
 - Solver uses Hugging Face local inference with default model google/gemma-4-E2B-it.
+- CLI and evaluation output now include search metadata: query, provider, fallback usage, and candidate count.
+- Default Hugging Face generation is capped to keep local demo runs reasonably short.
 
 ## Local evaluation
 Run the 10-query local evaluation and generate a summary report:
 - python evaluation/run_evaluation.py
+
+Run a smaller sampled evaluation when you want fresh evidence without the cost of the full run:
+- python evaluation/run_evaluation.py --limit 2 --results-file results.sample.json --reflection-file reflection.sample.md
 
 Artifacts written by the evaluation script:
 - evaluation/results.json

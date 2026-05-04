@@ -22,7 +22,7 @@ def extract_text_from_image(image_path: str) -> tuple[str, str | None]:
 
     try:
         import pytesseract
-        from PIL import Image
+        from PIL import Image, ImageOps
 
         tesseract_cmd = os.getenv("TESSERACT_CMD", "").strip()
         if tesseract_cmd:
@@ -31,7 +31,17 @@ def extract_text_from_image(image_path: str) -> tuple[str, str | None]:
         return "", f"OCR dependencies not available: {exc}"
 
     try:
-        text = pytesseract.image_to_string(Image.open(path))
+        image = Image.open(path)
+
+        # Basic preprocessing helps Tesseract recover simple printed equations.
+        grayscale = ImageOps.grayscale(image)
+        enlarged = grayscale.resize(
+            (grayscale.width * 3, grayscale.height * 3),
+            Image.Resampling.LANCZOS,
+        )
+        thresholded = enlarged.point(lambda value: 255 if value > 180 else 0)
+
+        text = pytesseract.image_to_string(thresholded, config="--psm 6")
         text = text.strip()
         if not text:
             return "", "OCR produced empty text"

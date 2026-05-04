@@ -7,7 +7,9 @@ technical reflection grounded in observed results.
 
 from __future__ import annotations
 
+import argparse
 import json
+import os
 import re
 import statistics
 import sys
@@ -200,17 +202,46 @@ def correctness_score(problem_id: int, result: dict) -> int:
     return 0
 
 
-def run_queries() -> dict:
+def parse_args() -> argparse.Namespace:
+    """Parse optional controls for safer local evaluation runs."""
+    parser = argparse.ArgumentParser(description="Run local evaluation for the Math Similarity Solver Agent")
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=0,
+        help="Run only the first N test problems. Use 0 to run the full set.",
+    )
+    parser.add_argument(
+        "--results-file",
+        type=str,
+        default="results.json",
+        help="Filename for the JSON evaluation output.",
+    )
+    parser.add_argument(
+        "--reflection-file",
+        type=str,
+        default="reflection.md",
+        help="Filename for the markdown evaluation reflection.",
+    )
+    return parser.parse_args()
+
+
+def run_queries(limit: int = 0) -> dict:
     """Run all fixed queries and compare solve with-vs-without similar context."""
     app = build_graph()
     runs = []
+    prompts = TEST_PROBLEMS if limit <= 0 else TEST_PROBLEMS[:limit]
 
-    for idx, prompt in enumerate(TEST_PROBLEMS, start=1):
+    for idx, prompt in enumerate(prompts, start=1):
         state = {"raw_text": prompt, "image_path": "", "errors": []}
         result = app.invoke(state)
 
         base_output = {
             "normalized_user_problem": result.get("normalized_problem", ""),
+            "search_query": result.get("query", ""),
+            "search_provider": result.get("search_provider", ""),
+            "search_used_fallback": result.get("search_used_fallback", False),
+            "search_candidate_count": result.get("search_candidate_count", 0),
             "retrieved_similar_problem": {
                 "title": result.get("best_match", {}).get("title", ""),
                 "url": result.get("best_match", {}).get("url", ""),
@@ -423,8 +454,8 @@ def build_reflection(results: dict) -> str:
         "# Technical Reflection (Local Evaluation)",
         "",
         "## Method",
-        "- Ran 10 fixed text queries through the existing LangGraph workflow (OCR -> normalize -> search -> similarity -> solve).",
-        "- For each query, evaluated two solve variants using local Ollama: with retrieved similar context and without similar context.",
+        f"- Ran {results['query_count']} fixed text queries through the existing LangGraph workflow (OCR -> normalize -> search -> similarity -> solve).",
+        f"- For each query, evaluated two solve variants using the configured local LLM backend ({os.getenv('LLM_BACKEND', 'huggingface')}): with retrieved similar context and without similar context.",
         "- Scored each run on retrieval relevance (0-2), solution utility (0-2), and prompt-specific answer correctness (0-2), then compared per-query and aggregate deltas.",
         "",
         "## Aggregate Results",
@@ -507,12 +538,13 @@ def build_reflection(results: dict) -> str:
 
 def main() -> None:
     load_dotenv()
+    args = parse_args()
 
     evaluation_dir = Path(__file__).resolve().parent
-    results_path = evaluation_dir / "results.json"
-    reflection_path = evaluation_dir / "reflection.md"
+    results_path = evaluation_dir / args.results_file
+    reflection_path = evaluation_dir / args.reflection_file
 
-    results = run_queries()
+    results = run_queries(limit=args.limit)
     reflection = build_reflection(results)
 
     results_path.write_text(json.dumps(results, indent=2), encoding="utf-8")

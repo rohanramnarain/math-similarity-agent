@@ -40,6 +40,10 @@ def main() -> None:
 
 	output = {
 		"normalized_user_problem": result.get("normalized_problem", ""),
+		"search_query": result.get("query", ""),
+		"search_provider": result.get("search_provider", ""),
+		"search_used_fallback": result.get("search_used_fallback", False),
+		"search_candidate_count": result.get("search_candidate_count", 0),
 		"retrieved_similar_problem": {
 			"title": result.get("best_match", {}).get("title", ""),
 			"url": result.get("best_match", {}).get("url", ""),

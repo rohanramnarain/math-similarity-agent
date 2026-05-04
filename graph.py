@@ -25,6 +25,9 @@ class AgentState(TypedDict, total=False):
 	normalized_problem: str
 	query: str
 	candidates: list[dict[str, Any]]
+	search_provider: str
+	search_used_fallback: bool
+	search_candidate_count: int
 	best_match: dict[str, Any]
 	similarity_score: float
 	final_solution: str
@@ -74,8 +77,11 @@ def search_node(state: AgentState) -> AgentState:
 	query = build_edu_query(normalized)
 	state["query"] = query
 
-	candidates, error = search_candidate_problems(query)
+	candidates, error, metadata = search_candidate_problems(query)
 	state["candidates"] = candidates
+	state["search_provider"] = metadata.get("provider", "")
+	state["search_used_fallback"] = bool(metadata.get("used_fallback", False))
+	state["search_candidate_count"] = int(metadata.get("candidate_count", len(candidates)))
 	if error:
 		_add_error(state, error)
 	return state

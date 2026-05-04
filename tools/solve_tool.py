@@ -102,7 +102,8 @@ def _solve_with_huggingface(user_problem: str, similar_problem: str) -> tuple[st
     """Solve using a local Hugging Face model (default: Gemma 4 E2B-it)."""
     model_id = os.getenv("HF_MODEL_ID", "google/gemma-4-E2B-it").strip() or "google/gemma-4-E2B-it"
     hf_token = os.getenv("HF_TOKEN", "").strip() or None
-    max_new_tokens = int(os.getenv("HF_MAX_NEW_TOKENS", "512"))
+    # Keep the default concise so local demo runs finish in a reasonable time.
+    max_new_tokens = int(os.getenv("HF_MAX_NEW_TOKENS", "160"))
 
     try:
         model, tokenizer = _load_hf_model(model_id=model_id, hf_token=hf_token)

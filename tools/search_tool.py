@@ -7,14 +7,17 @@ that the classroom demo still runs end-to-end.
 
 from __future__ import annotations
 
+import html
 import re
 from typing import Any
 from urllib.parse import parse_qs, unquote, urlparse
+import xml.etree.ElementTree as ET
 
 import requests
 from bs4 import BeautifulSoup
 
 DUCKDUCKGO_HTML = "https://duckduckgo.com/html/"
+BING_SEARCH = "https://www.bing.com/search"
 
 FALLBACK_RESULTS = [
     {
@@ -69,10 +72,32 @@ def _fallback_candidates_for_query(query: str, max_results: int = 5) -> list[dic
     return ordered[:max_results]
 
 
+def _topic_terms(problem_text: str) -> list[str]:
+    """Add lightweight math-topic hints to improve search relevance."""
+    text = problem_text.lower()
+    terms: list[str] = []
+
+    if "derivative" in text or "differentiate" in text:
+        terms.extend(["calculus", "derivative"])
+    elif "integral" in text or "integrate" in text:
+        terms.extend(["calculus", "integral"])
+    elif "factor" in text:
+        terms.extend(["algebra", "factoring"])
+    elif "system" in text or ("x + y" in text and "x - y" in text):
+        terms.extend(["algebra", "system of equations"])
+    elif "rectangle" in text or "area" in text:
+        terms.extend(["geometry", "area"])
+    else:
+        terms.extend(["algebra", "linear equation"])
+
+    return terms
+
+
 def build_edu_query(problem_text: str) -> str:
     """Build a short .edu-focused search query from normalized problem text."""
-    short = " ".join(problem_text.split()[:24])
-    return f"site:.edu solved example {short}".strip()
+    short = " ".join(problem_text.split()[:18])
+    topic = " ".join(_topic_terms(problem_text))
+    return f'site:.edu {topic} worked example "{short}"'.strip()
 
 
 def _is_edu_url(url: str) -> bool:
@@ -91,24 +116,23 @@ def _unwrap_duckduckgo_link(url: str) -> str:
     return url
 
 
-def search_candidate_problems(query: str, max_results: int = 5) -> tuple[list[dict[str, Any]], str | None]:
-    """Search for candidate solved problems and return basic text fields.
+def _clean_snippet(text: str) -> str:
+    """Normalize snippet text from search providers."""
+    text = html.unescape(text or "")
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
-    Returns:
-        (results, error_message). If successful, error_message is None.
-    """
-    try:
-        response = requests.get(
-            DUCKDUCKGO_HTML,
-            params={"q": query},
-            timeout=12,
-            headers={"User-Agent": "Mozilla/5.0 (MathSimilarityAgent/0.1)"},
-        )
-        response.raise_for_status()
-    except Exception as exc:
-        # Clear fallback for offline demos or blocked network environments.
-        fallback = _fallback_candidates_for_query(query=query, max_results=max_results)
-        return fallback, f"Search request failed, using fallback examples: {exc}"
+
+def _search_duckduckgo_html(query: str, max_results: int) -> tuple[list[dict[str, Any]], str | None]:
+    """Try DuckDuckGo HTML results first."""
+    response = requests.get(
+        DUCKDUCKGO_HTML,
+        params={"q": query},
+        timeout=12,
+        headers={"User-Agent": "Mozilla/5.0 (MathSimilarityAgent/0.1)"},
+    )
+    response.raise_for_status()
 
     soup = BeautifulSoup(response.text, "html.parser")
     results: list[dict[str, Any]] = []
@@ -123,19 +147,89 @@ def search_candidate_problems(query: str, max_results: int = 5) -> tuple[list[di
         title = link.get_text(" ", strip=True)
         snippet = snippet_node.get_text(" ", strip=True) if snippet_node else ""
 
-        # Keep .edu targets only to match project scope.
         if not _is_edu_url(url):
             continue
 
-        # Remove noisy whitespace and symbols for easier downstream similarity.
-        snippet = re.sub(r"\s+", " ", snippet).strip()
+        results.append({"title": title, "url": url, "snippet": _clean_snippet(snippet)})
+        if len(results) >= max_results:
+            break
 
+    if not results:
+        return [], "DuckDuckGo returned no .edu candidates"
+
+    return results, None
+
+
+def _search_bing_rss(query: str, max_results: int) -> tuple[list[dict[str, Any]], str | None]:
+    """Fallback to Bing RSS because it is lighter-weight than HTML scraping."""
+    response = requests.get(
+        BING_SEARCH,
+        params={"q": query, "format": "rss"},
+        timeout=12,
+        headers={"User-Agent": "Mozilla/5.0 (MathSimilarityAgent/0.1)"},
+    )
+    response.raise_for_status()
+
+    root = ET.fromstring(response.text)
+    results: list[dict[str, Any]] = []
+
+    for item in root.findall("./channel/item"):
+        url = (item.findtext("link") or "").strip()
+        if not _is_edu_url(url):
+            continue
+
+        title = (item.findtext("title") or "").strip()
+        snippet = _clean_snippet(item.findtext("description") or "")
         results.append({"title": title, "url": url, "snippet": snippet})
         if len(results) >= max_results:
             break
 
     if not results:
-        fallback = _fallback_candidates_for_query(query=query, max_results=max_results)
-        return fallback, "No .edu candidates found from web search; using fallback examples"
+        return [], "Bing RSS returned no .edu candidates"
 
     return results, None
+
+
+def search_candidate_problems(
+    query: str,
+    max_results: int = 5,
+) -> tuple[list[dict[str, Any]], str | None, dict[str, Any]]:
+    """Search for candidate solved problems and return basic text fields.
+
+    Returns:
+        (results, error_message, metadata). If successful, error_message is None.
+    """
+    attempt_errors: list[str] = []
+
+    for provider_name, search_fn in [
+        ("DuckDuckGo HTML", _search_duckduckgo_html),
+        ("Bing RSS", _search_bing_rss),
+    ]:
+        try:
+            results, error = search_fn(query, max_results)
+        except Exception as exc:
+            attempt_errors.append(f"{provider_name} failed: {exc}")
+            continue
+
+        if results:
+            if error:
+                attempt_errors.append(error)
+            warning = "; ".join(attempt_errors) if attempt_errors else None
+            metadata = {
+                "provider": provider_name,
+                "used_fallback": False,
+                "candidate_count": len(results),
+            }
+            return results, warning, metadata
+
+        if error:
+            attempt_errors.append(error)
+
+    fallback = _fallback_candidates_for_query(query=query, max_results=max_results)
+    error_message = "; ".join(attempt_errors) if attempt_errors else "No .edu candidates found from live search"
+    metadata = {
+        "provider": "Static Fallback",
+        "used_fallback": True,
+        "candidate_count": len(fallback),
+    }
+    return fallback, f"{error_message}; using fallback examples", metadata

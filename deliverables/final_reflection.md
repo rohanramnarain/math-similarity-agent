@@ -1,6 +1,6 @@
 # Final Reflection: Math Similarity Solver Agent
 
-Math assistance is already here; math assistance has always been here. The question in this project was never whether students needed another large autonomous system, but whether a small, explainable workflow could retrieve a related solved problem and then use that context to solve a new one in a reliable way. 
+Math assistance is already here; math assistance has always been here. The question in this project was never whether students needed another large autonomous system, but whether a small, explainable workflow could retrieve a related solved problem and then use that context to solve a new one in a reliable way. The point of this project is also that math questions that are published on the internet on educational websites change over time and advances in math and changes in common curricula are also reflected in the constant "drift" of online math problems. 
 
 In that spirit, I built a minimal LangGraph pipeline with five explicit stages: OCR, normalization, search, similarity ranking, and solve. Each stage has one clear role, each transition is visible, and each decision can be explained in plain language during a class demo.
 

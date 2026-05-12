@@ -46,11 +46,15 @@ Image mode:
 
 ## Notes
 - This is intentionally simple and classroom-demo friendly.
-- Search node tries DuckDuckGo HTML, then Bing RSS, and finally falls back to static .edu examples if needed.
+- Search node now tries Bing HTML first, then Bing RSS, then DuckDuckGo HTML, and finally falls back to static .edu examples if needed.
 - Similarity uses simple lexical overlap as a baseline.
 - Solver uses Hugging Face local inference with default model google/gemma-4-E2B-it.
 - CLI and evaluation output now include search metadata: query, provider, fallback usage, and candidate count.
 - Default Hugging Face generation is capped to keep local demo runs reasonably short.
+- If Hugging Face inference returns a placeholder solution, check HF_TOKEN access and Transformers/Gemma compatibility in your active Python environment.
+- Recent local retrieval checks pulled live .edu pages such as:
+	- https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx (Paul's Online Math Notes, via Bing RSS)
+	- https://ocw.mit.edu/courses/res-18-001-calculus-fall-2023/pages/open-textbook/ (MIT OpenCourseWare, via Bing RSS)
 
 ## Local evaluation
 Run the 10-query local evaluation and generate a summary report:

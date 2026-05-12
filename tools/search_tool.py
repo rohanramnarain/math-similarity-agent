@@ -190,6 +190,42 @@ def _search_bing_rss(query: str, max_results: int) -> tuple[list[dict[str, Any]]
     return results, None
 
 
+def _search_bing_html(query: str, max_results: int) -> tuple[list[dict[str, Any]], str | None]:
+    """Use Bing HTML results as a stronger fallback than RSS for .edu pages."""
+    response = requests.get(
+        BING_SEARCH,
+        params={"q": query},
+        timeout=12,
+        headers={"User-Agent": "Mozilla/5.0 (MathSimilarityAgent/0.1)"},
+    )
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    results: list[dict[str, Any]] = []
+
+    for block in soup.select("li.b_algo"):
+        link = block.select_one("h2 a")
+        snippet_node = block.select_one("p")
+        if not link:
+            continue
+
+        url = (link.get("href") or "").strip()
+        title = link.get_text(" ", strip=True)
+        snippet = snippet_node.get_text(" ", strip=True) if snippet_node else ""
+
+        if not _is_edu_url(url):
+            continue
+
+        results.append({"title": title, "url": url, "snippet": _clean_snippet(snippet)})
+        if len(results) >= max_results:
+            break
+
+    if not results:
+        return [], "Bing HTML returned no .edu candidates"
+
+    return results, None
+
+
 def search_candidate_problems(
     query: str,
     max_results: int = 5,
@@ -202,8 +238,9 @@ def search_candidate_problems(
     attempt_errors: list[str] = []
 
     for provider_name, search_fn in [
-        ("DuckDuckGo HTML", _search_duckduckgo_html),
+        ("Bing HTML", _search_bing_html),
         ("Bing RSS", _search_bing_rss),
+        ("DuckDuckGo HTML", _search_duckduckgo_html),
     ]:
         try:
             results, error = search_fn(query, max_results)

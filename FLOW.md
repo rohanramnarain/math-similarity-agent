@@ -21,6 +21,62 @@ flowchart TD
     C --> D --> E --> F --> G
 ```
 
+## Presentation Flow (Slide-Friendly)
+
+```mermaid
+flowchart LR
+  subgraph I[Input Stage]
+    T[Text Problem]
+    IMG[Image Problem]
+    OCR[OCR Node]
+    N[Normalize Node]
+    IMG --> OCR --> N
+    T --> N
+  end
+
+  subgraph R[Retrieval Stage]
+    Q[Build .edu Query]
+    BH[Bing HTML]
+    BR[Bing RSS]
+    DDG[DuckDuckGo HTML]
+    FB[Static .edu Fallback]
+    CANDS[Candidate Results]
+    S[Similarity Rank]
+    BEST[Best Match]
+
+    Q --> BH
+    BH -->|if none| BR
+    BR -->|if none| DDG
+    DDG -->|if none| FB
+
+    BH -->|if found| CANDS
+    BR -->|if found| CANDS
+    DDG -->|if found| CANDS
+    FB --> CANDS
+
+    CANDS --> S --> BEST
+  end
+
+  subgraph L[Solve Stage]
+    P[Prompt Builder]
+    M[LLM Solve]
+    OUT[Output JSON]
+    P --> M --> OUT
+  end
+
+  N --> Q
+  N --> P
+  BEST --> P
+
+  classDef input fill:#e8f4ff,stroke:#2b6cb0,stroke-width:1px,color:#0b2540;
+  classDef retrieve fill:#e8fff0,stroke:#2f855a,stroke-width:1px,color:#123524;
+  classDef solve fill:#fff7e6,stroke:#b7791f,stroke-width:1px,color:#3b2f0b;
+
+  class T,IMG,OCR,N input;
+  class Q,BH,BR,DDG,FB,CANDS,S,BEST retrieve;
+  class P,M,OUT solve;
+```
+
 ## Step-by-Step
 
 1. Input

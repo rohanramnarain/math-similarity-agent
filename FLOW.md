@@ -6,15 +6,15 @@ This document shows the end-to-end workflow at a high level.
 
 ```mermaid
 flowchart TD
-    A[Input]
-    A1[Text Problem]
-    A2[Image Problem]
-    B[OCR Node]
-    C[Normalize Node]
-    D[Search Node (.edu-focused query)]
-    E[Similarity Node (best match)]
-    F[Solve Node (LLM)]
-    G[Output JSON]
+  A["Input"]
+  A1["Text Problem"]
+  A2["Image Problem"]
+  B["OCR Node"]
+  C["Normalize Node"]
+  D["Search Node - edu focused query"]
+  E["Similarity Node - best match"]
+  F["Solve Node - LLM"]
+  G["Output JSON"]
 
     A --> A1 --> C
     A --> A2 --> B --> C
@@ -26,23 +26,23 @@ flowchart TD
 ```mermaid
 flowchart LR
   subgraph I[Input Stage]
-    T[Text Problem]
-    IMG[Image Problem]
-    OCR[OCR Node]
-    N[Normalize Node]
+    T["Text Problem"]
+    IMG["Image Problem"]
+    OCR["OCR Node"]
+    N["Normalize Node"]
     IMG --> OCR --> N
     T --> N
   end
 
   subgraph R[Retrieval Stage]
-    Q[Build .edu Query]
-    BH[Bing HTML]
-    BR[Bing RSS]
-    DDG[DuckDuckGo HTML]
-    FB[Static .edu Fallback]
-    CANDS[Candidate Results]
-    S[Similarity Rank]
-    BEST[Best Match]
+    Q["Build edu query"]
+    BH["Bing HTML"]
+    BR["Bing RSS"]
+    DDG["DuckDuckGo HTML"]
+    FB["Static edu fallback"]
+    CANDS["Candidate results"]
+    S["Similarity rank"]
+    BEST["Best match"]
 
     Q --> BH
     BH -->|if none| BR
@@ -58,9 +58,9 @@ flowchart LR
   end
 
   subgraph L[Solve Stage]
-    P[Prompt Builder]
-    M[LLM Solve]
-    OUT[Output JSON]
+    P["Prompt builder"]
+    M["LLM solve"]
+    OUT["Output JSON"]
     P --> M --> OUT
   end
 

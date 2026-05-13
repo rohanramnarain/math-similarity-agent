@@ -8,12 +8,46 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import textwrap
 
 from dotenv import load_dotenv
 
 from graph import build_graph
 from tools.solve_tool import get_startup_warning
+
+
+def _clean_math_output(text: str) -> str:
+	"""Convert common LaTeX math notation into terminal-friendly plain text."""
+	if not text:
+		return ""
+
+	cleaned = re.sub(r"\$\$(.*?)\$\$", r"\1", text, flags=re.DOTALL)
+	cleaned = re.sub(r"\$(.*?)\$", r"\1", cleaned, flags=re.DOTALL)
+
+	# Convert nested \frac{a}{b} forms one level at a time.
+	while True:
+		updated = re.sub(r"\\frac\s*\{([^{}]+)\}\s*\{([^{}]+)\}", r"(\1)/(\2)", cleaned)
+		if updated == cleaned:
+			break
+		cleaned = updated
+
+	cleaned = re.sub(r"\\sqrt\s*\{([^{}]+)\}", r"sqrt(\1)", cleaned)
+	cleaned = cleaned.replace("\\times", "*")
+	cleaned = cleaned.replace("\\cdot", "*")
+	cleaned = cleaned.replace("\\leq", "<=")
+	cleaned = cleaned.replace("\\geq", ">=")
+	cleaned = cleaned.replace("\\neq", "!=")
+	cleaned = cleaned.replace("\\left", "")
+	cleaned = cleaned.replace("\\right", "")
+
+	# Strip any remaining simple LaTeX commands while preserving their text payload.
+	cleaned = re.sub(r"\\[a-zA-Z]+", "", cleaned)
+	cleaned = cleaned.replace("{", "")
+	cleaned = cleaned.replace("}", "")
+	cleaned = re.sub(r"[ \t]+", " ", cleaned)
+	cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+	return cleaned
 
 
 def parse_args() -> argparse.Namespace:
@@ -99,7 +133,7 @@ def main() -> None:
 			"snippet": result.get("best_match", {}).get("snippet", ""),
 		},
 		"similarity_score": result.get("similarity_score", 0.0),
-		"final_solution": result.get("final_solution", ""),
+		"final_solution": _clean_math_output(result.get("final_solution", "")),
 		"errors": result.get("errors", []),
 	}
 

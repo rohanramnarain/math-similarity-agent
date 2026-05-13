@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import textwrap
 
 from dotenv import load_dotenv
 
@@ -20,7 +21,55 @@ def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description="Math Similarity Solver Agent")
 	parser.add_argument("--text", type=str, default="", help="Raw math problem as text")
 	parser.add_argument("--image", type=str, default="", help="Path to image containing a math problem")
+	parser.add_argument(
+		"--format",
+		choices=["pretty", "json"],
+		default="pretty",
+		help="Output format for terminal display",
+	)
 	return parser.parse_args()
+
+
+def _pretty_print_output(output: dict) -> None:
+	"""Print a demo-friendly terminal report."""
+	line = "=" * 72
+	print(line)
+	print("MATH SIMILARITY SOLVER REPORT")
+	print(line)
+
+	print(f"Problem      : {output.get('normalized_user_problem', '')}")
+	print(f"Search Query : {output.get('search_query', '')}")
+	print(
+		"Search       : "
+		f"{output.get('search_provider', '')} | "
+		f"candidates={output.get('search_candidate_count', 0)} | "
+		f"fallback={output.get('search_used_fallback', False)}"
+	)
+
+	match = output.get("retrieved_similar_problem", {})
+	print("\nBest Retrieved Match")
+	print("-" * 72)
+	print(f"Title        : {match.get('title', '')}")
+	print(f"URL          : {match.get('url', '')}")
+	print("Snippet      :")
+	print(textwrap.fill(match.get("snippet", ""), width=72, initial_indent="  ", subsequent_indent="  "))
+
+	print("\nSimilarity")
+	print("-" * 72)
+	print(f"Score        : {output.get('similarity_score', 0.0):.3f}")
+
+	print("\nFinal Solution")
+	print("-" * 72)
+	print(output.get("final_solution", ""))
+
+	errors = output.get("errors", [])
+	if errors:
+		print("\nWarnings / Notes")
+		print("-" * 72)
+		for err in errors:
+			print(f"- {err}")
+
+	print(line)
 
 
 def main() -> None:
@@ -54,7 +103,10 @@ def main() -> None:
 		"errors": result.get("errors", []),
 	}
 
-	print(json.dumps(output, indent=2))
+	if args.format == "json":
+		print(json.dumps(output, indent=2))
+	else:
+		_pretty_print_output(output)
 
 
 if __name__ == "__main__":

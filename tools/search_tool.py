@@ -8,6 +8,7 @@ that the classroom demo still runs end-to-end.
 from __future__ import annotations
 
 import html
+import base64
 import re
 from typing import Any
 from urllib.parse import parse_qs, unquote, urlparse
@@ -97,7 +98,8 @@ def build_edu_query(problem_text: str) -> str:
     """Build a short .edu-focused search query from normalized problem text."""
     short = " ".join(problem_text.split()[:18])
     topic = " ".join(_topic_terms(problem_text))
-    return f'site:.edu {topic} worked example "{short}"'.strip()
+    # Keep first-pass query broad enough for search engines to return candidates.
+    return f"site:.edu {topic} worked example {short}".strip()
 
 
 def _is_edu_url(url: str) -> bool:
@@ -114,6 +116,90 @@ def _unwrap_duckduckgo_link(url: str) -> str:
     if "uddg" in query and query["uddg"]:
         return unquote(query["uddg"][0])
     return url
+
+
+def _decode_bing_u_param(encoded_value: str) -> str | None:
+    """Decode Bing's `u=` redirect payload when it contains a base64 URL."""
+    value = encoded_value.strip()
+    if not value:
+        return None
+
+    if value.startswith("a1"):
+        value = value[2:]
+
+    padding = "=" * ((4 - len(value) % 4) % 4)
+    try:
+        decoded = base64.urlsafe_b64decode((value + padding).encode("utf-8")).decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+
+    decoded = decoded.strip()
+    if decoded.startswith("http://") or decoded.startswith("https://"):
+        return decoded
+    return None
+
+
+def _unwrap_bing_link(url: str) -> str:
+    """Convert common Bing redirect links to direct destination URLs."""
+    parsed = urlparse(url)
+    if "bing.com" not in parsed.netloc:
+        return url
+
+    query = parse_qs(parsed.query)
+    for key in ("url", "u", "r"):
+        if key not in query or not query[key]:
+            continue
+        candidate = unquote(query[key][0]).strip()
+        if candidate.startswith("http://") or candidate.startswith("https://"):
+            return candidate
+
+        if key == "u":
+            decoded = _decode_bing_u_param(candidate)
+            if decoded:
+                return decoded
+
+    return url
+
+
+def _normalize_provider_url(url: str) -> str:
+    """Normalize provider links by unwrapping known search-engine redirects."""
+    unwrapped = _unwrap_duckduckgo_link(url)
+    unwrapped = _unwrap_bing_link(unwrapped)
+    return unwrapped
+
+
+def _resolve_final_url(url: str, timeout: float = 6.0) -> str:
+    """Resolve redirects so we can evaluate the final destination domain."""
+    try:
+        response = requests.get(
+            url,
+            timeout=timeout,
+            allow_redirects=True,
+            headers={"User-Agent": "Mozilla/5.0 (MathSimilarityAgent/0.1)"},
+            stream=True,
+        )
+        final_url = response.url or url
+        response.close()
+        return final_url
+    except Exception:
+        return url
+
+
+def _accepted_edu_url(url: str, final_url_cache: dict[str, str]) -> str | None:
+    """Accept direct .edu links first, then fallback to final redirected domain."""
+    normalized = _normalize_provider_url(url)
+    if _is_edu_url(normalized):
+        return normalized
+
+    final_url = final_url_cache.get(normalized)
+    if final_url is None:
+        final_url = _resolve_final_url(normalized)
+        final_url_cache[normalized] = final_url
+
+    if _is_edu_url(final_url):
+        return final_url
+
+    return None
 
 
 def _clean_snippet(text: str) -> str:
@@ -136,6 +222,7 @@ def _search_duckduckgo_html(query: str, max_results: int) -> tuple[list[dict[str
 
     soup = BeautifulSoup(response.text, "html.parser")
     results: list[dict[str, Any]] = []
+    final_url_cache: dict[str, str] = {}
 
     for block in soup.select("div.result"):
         link = block.select_one("a.result__a")
@@ -143,14 +230,15 @@ def _search_duckduckgo_html(query: str, max_results: int) -> tuple[list[dict[str
         if not link:
             continue
 
-        url = _unwrap_duckduckgo_link(link.get("href", "").strip())
+        raw_url = link.get("href", "").strip()
         title = link.get_text(" ", strip=True)
         snippet = snippet_node.get_text(" ", strip=True) if snippet_node else ""
 
-        if not _is_edu_url(url):
+        accepted_url = _accepted_edu_url(raw_url, final_url_cache)
+        if not accepted_url:
             continue
 
-        results.append({"title": title, "url": url, "snippet": _clean_snippet(snippet)})
+        results.append({"title": title, "url": accepted_url, "snippet": _clean_snippet(snippet)})
         if len(results) >= max_results:
             break
 
@@ -172,15 +260,17 @@ def _search_bing_rss(query: str, max_results: int) -> tuple[list[dict[str, Any]]
 
     root = ET.fromstring(response.text)
     results: list[dict[str, Any]] = []
+    final_url_cache: dict[str, str] = {}
 
     for item in root.findall("./channel/item"):
-        url = (item.findtext("link") or "").strip()
-        if not _is_edu_url(url):
+        raw_url = (item.findtext("link") or "").strip()
+        accepted_url = _accepted_edu_url(raw_url, final_url_cache)
+        if not accepted_url:
             continue
 
         title = (item.findtext("title") or "").strip()
         snippet = _clean_snippet(item.findtext("description") or "")
-        results.append({"title": title, "url": url, "snippet": snippet})
+        results.append({"title": title, "url": accepted_url, "snippet": snippet})
         if len(results) >= max_results:
             break
 
@@ -202,6 +292,7 @@ def _search_bing_html(query: str, max_results: int) -> tuple[list[dict[str, Any]
 
     soup = BeautifulSoup(response.text, "html.parser")
     results: list[dict[str, Any]] = []
+    final_url_cache: dict[str, str] = {}
 
     for block in soup.select("li.b_algo"):
         link = block.select_one("h2 a")
@@ -209,14 +300,15 @@ def _search_bing_html(query: str, max_results: int) -> tuple[list[dict[str, Any]
         if not link:
             continue
 
-        url = (link.get("href") or "").strip()
+        raw_url = (link.get("href") or "").strip()
         title = link.get_text(" ", strip=True)
         snippet = snippet_node.get_text(" ", strip=True) if snippet_node else ""
 
-        if not _is_edu_url(url):
+        accepted_url = _accepted_edu_url(raw_url, final_url_cache)
+        if not accepted_url:
             continue
 
-        results.append({"title": title, "url": url, "snippet": _clean_snippet(snippet)})
+        results.append({"title": title, "url": accepted_url, "snippet": _clean_snippet(snippet)})
         if len(results) >= max_results:
             break
 
